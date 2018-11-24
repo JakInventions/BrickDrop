@@ -1,0 +1,10 @@
+<title>Brick Drop</title>
+
+<link rel="apple-touch-icon" href="icon2.png">
+
+<link rel="shortcut icon" href="icon.png">
+<meta name="apple-mobile-web-app-title" content="Brick Drop">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
