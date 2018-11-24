@@ -14,10 +14,9 @@
  * However, you should not be calling the constructor on an already existing object
  * which is not a RuntimeObject.
  *
- * @namespace gdjs
+ * @memberof gdjs
  * @class RuntimeObject
- * @constructor
- * @param runtimeScene The RuntimeScene owning the object.
+ * @param {gdjs.RuntimeScene} runtimeScene The RuntimeScene owning the object.
  * @param objectData The data defining the object
  */
 gdjs.RuntimeObject = function(runtimeScene, objectData)
@@ -89,6 +88,12 @@ gdjs.RuntimeObject = function(runtimeScene, objectData)
         this._behaviorsTable.put(autoData.name, this._behaviors[i]);
     }
     this._behaviors.length = i;//Make sure to delete already existing behaviors which are not used anymore.
+
+    //Timers:
+    if (this._timers === undefined)
+        this._timers = new Hashtable();
+    else
+        this._timers.clear();
 };
 
 gdjs.RuntimeObject.forcesGarbage = []; //Global container for unused forces, avoiding recreating forces each tick.
@@ -101,8 +106,7 @@ gdjs.RuntimeObject.forcesGarbage = []; //Global container for unused forces, avo
  *
  * Objects can have different elapsed time if they are on layers with different time scales.
  *
- * @method getElapsedTime
- * @param runtimeScene The RuntimeScene the object belongs to.
+ * @param {gdjs.RuntimeScene} runtimeScene The RuntimeScene the object belongs to.
  */
 gdjs.RuntimeObject.prototype.getElapsedTime = function(runtimeScene) {
     //TODO: Memoize?
@@ -112,8 +116,7 @@ gdjs.RuntimeObject.prototype.getElapsedTime = function(runtimeScene) {
 
 /**
  * Called once during the game loop, before events and rendering.
- * @method update
- * @param runtimeScene The gdjs.RuntimeScene the object belongs to.
+ * @param {gdjs.RuntimeScene} runtimeScene The gdjs.RuntimeScene the object belongs to.
  */
 gdjs.RuntimeObject.prototype.update = function(runtimeScene) {
     //Nothing to do.
@@ -123,7 +126,6 @@ gdjs.RuntimeObject.prototype.update = function(runtimeScene) {
  * Called when the object is created from an initial instance at the startup of the scene.<br>
  * Note that common properties (position, angle, z order...) have already been setup.
  *
- * @method extraInitializationFromInitialInstance
  * @param initialInstanceData The data of the initial instance.
  */
 gdjs.RuntimeObject.prototype.extraInitializationFromInitialInstance = function(initialInstanceData) {
@@ -133,8 +135,7 @@ gdjs.RuntimeObject.prototype.extraInitializationFromInitialInstance = function(i
 /**
  * Remove an object from a scene.<br>
  * Extensions writers, do not change this method. Instead, redefine the onDeletedFromScene method.
- * @method deleteFromScene
- * @param runtimeScene The RuntimeScene owning the object.
+ * @param {gdjs.RuntimeScene} runtimeScene The RuntimeScene owning the object.
  */
 gdjs.RuntimeObject.prototype.deleteFromScene = function(runtimeScene) {
     if ( this.livingOnScene ) {
@@ -146,8 +147,7 @@ gdjs.RuntimeObject.prototype.deleteFromScene = function(runtimeScene) {
 /**
  * Called when the object is removed from its scene.
  *
- * @method onDeletedFromScene
- * @param runtimeScene The RuntimeScene owning the object.
+ * @param {gdjs.RuntimeScene} runtimeScene The RuntimeScene owning the object.
  */
 gdjs.RuntimeObject.prototype.onDeletedFromScene = function(runtimeScene) {
     var theLayer = runtimeScene.getLayer(this.layer);
@@ -160,7 +160,6 @@ gdjs.RuntimeObject.prototype.onDeletedFromScene = function(runtimeScene) {
  * Called with a callback function that should be called with the internal
  * object used for rendering by the object (PIXI.DisplayObject...)
  *
- * @method getRendererObject
  * @return {Object} The internal rendered object (PIXI.DisplayObject...)
  */
 gdjs.RuntimeObject.prototype.getRendererObject = function() {
@@ -170,8 +169,7 @@ gdjs.RuntimeObject.prototype.getRendererObject = function() {
 
 /**
  * Get the name of the object.
- * @method getName
- * @return {String} The object's name.
+ * @return {string} The object's name.
  */
 gdjs.RuntimeObject.prototype.getName = function() {
     return this.name;
@@ -179,8 +177,7 @@ gdjs.RuntimeObject.prototype.getName = function() {
 
 /**
  * Get the name identifier of the object.
- * @method getNameId
- * @return {Number} The object's name identifier.
+ * @return {number} The object's name identifier.
  */
 gdjs.RuntimeObject.prototype.getNameId = function() {
     return this._nameId;
@@ -192,8 +189,7 @@ gdjs.RuntimeObject.prototype.getNameId = function() {
  * You can also use the id property (this._object.id) for increased efficiency instead of
  * calling this method.
  *
- * @method getUniqueId
- * @return {Number} The object identifier
+ * @return {number} The object identifier
  */
 gdjs.RuntimeObject.prototype.getUniqueId = function() {
     return this.id;
@@ -202,9 +198,8 @@ gdjs.RuntimeObject.prototype.getUniqueId = function() {
 /**
  * Set the position of the object.
  *
- * @method setPosition
- * @param x {Number} The new X position
- * @param y {Number} The new Y position
+ * @param {number} x The new X position
+ * @param {number} y The new Y position
  */
 gdjs.RuntimeObject.prototype.setPosition = function(x,y) {
     this.setX(x);
@@ -214,8 +209,7 @@ gdjs.RuntimeObject.prototype.setPosition = function(x,y) {
 /**
  * Set the X position of the object.
  *
- * @method setX
- * @param x {Number} The new X position
+ * @param {number} x The new X position
  */
 gdjs.RuntimeObject.prototype.setX = function(x) {
     if ( x === this.x ) return;
@@ -227,8 +221,7 @@ gdjs.RuntimeObject.prototype.setX = function(x) {
 /**
  * Get the X position of the object.
  *
- * @method getX
- * @return {Number} The X position of the object
+ * @return {number} The X position of the object
  */
 gdjs.RuntimeObject.prototype.getX = function() {
     return this.x;
@@ -237,8 +230,7 @@ gdjs.RuntimeObject.prototype.getX = function() {
 /**
  * Set the Y position of the object.
  *
- * @method setY
- * @param y {Number} The new Y position
+ * @param {number} y The new Y position
  */
 gdjs.RuntimeObject.prototype.setY = function(y) {
     if ( y === this.y ) return;
@@ -250,8 +242,7 @@ gdjs.RuntimeObject.prototype.setY = function(y) {
 /**
  * Get the Y position of the object.
  *
- * @method getY
- * @return {Number} The Y position of the object
+ * @return {number} The Y position of the object
  */
 gdjs.RuntimeObject.prototype.getY = function() {
     return this.y;
@@ -263,8 +254,7 @@ gdjs.RuntimeObject.prototype.getY = function() {
  * has an origin this.is not the same as the point (0,0) of the object displayed,
  * getDrawableX will differs.
  *
- * @method getDrawableX
- * @return {Number} The X position of the rendered object.
+ * @return {number} The X position of the rendered object.
  */
 gdjs.RuntimeObject.prototype.getDrawableX = function() {
     return this.getX();
@@ -276,8 +266,7 @@ gdjs.RuntimeObject.prototype.getDrawableX = function() {
  * has an origin this.is not the same as the point (0,0) of the object displayed,
  * getDrawableY will differs.
  *
- * @method getDrawableY
- * @return {Number} The Y position of the rendered object.
+ * @return {number} The Y position of the rendered object.
  */
 gdjs.RuntimeObject.prototype.getDrawableY = function() {
     return this.getY();
@@ -308,6 +297,12 @@ gdjs.RuntimeObject.prototype.rotateTowardAngle = function(angle, speed, runtimeS
         this.setAngle(angle); //...so force them to be in the path angle anyway.
 };
 
+/**
+ * Rotate the object at the given speed
+ *
+ * @param {number} speed The speed, in degrees per second.
+ * @param {gdjs.RuntimeScene} runtimeScene The scene where the object is displayed.
+ */
 gdjs.RuntimeObject.prototype.rotate = function(speed, runtimeScene) {
     this.setAngle(this.getAngle() + speed * this.getElapsedTime(runtimeScene) / 1000);
 };
@@ -315,8 +310,7 @@ gdjs.RuntimeObject.prototype.rotate = function(speed, runtimeScene) {
 /**
  * Set the angle of the object.
  *
- * @method setAngle
- * @param angle {Number} The new angle of the object
+ * @param {number} angle The new angle of the object
  */
 gdjs.RuntimeObject.prototype.setAngle = function(angle) {
     if ( this.angle === angle ) return;
@@ -328,8 +322,7 @@ gdjs.RuntimeObject.prototype.setAngle = function(angle) {
 /**
  * Get the rotation of the object.
  *
- * @method getAngle
- * @return {Number} The rotation of the object
+ * @return {number} The rotation of the object, in degrees.
  */
 gdjs.RuntimeObject.prototype.getAngle = function() {
     return this.angle;
@@ -338,8 +331,7 @@ gdjs.RuntimeObject.prototype.getAngle = function() {
 /**
  * Set the layer of the object.
  *
- * @method setLayer
- * @return {String} The new layer of the object
+ * @param {string} layer The new layer of the object
  */
 gdjs.RuntimeObject.prototype.setLayer = function(layer) {
     if (layer === this.layer) return;
@@ -356,8 +348,7 @@ gdjs.RuntimeObject.prototype.setLayer = function(layer) {
 /**
  * Get the layer of the object.
  *
- * @method getLayer
- * @return {String} The layer of the object
+ * @return {string} The layer of the object
  */
 gdjs.RuntimeObject.prototype.getLayer = function() {
     return this.layer;
@@ -366,9 +357,8 @@ gdjs.RuntimeObject.prototype.getLayer = function() {
 /**
  * Return true if the object is on the specified layer
  *
- * @method isOnLayer
- * @param layer {String} The layer to be tested.
- * @return {Boolean} true if the object is on the specified layer
+ * @param {string} layer The layer to be tested.
+ * @return {boolean} true if the object is on the specified layer
  */
 gdjs.RuntimeObject.prototype.isOnLayer = function(layer) {
     return this.layer === layer;
@@ -378,8 +368,7 @@ gdjs.RuntimeObject.prototype.isOnLayer = function(layer) {
 /**
  * Set the Z order of the object.
  *
- * @method setZOrder
- * @param z {Number} The new Z order position of the object
+ * @param {number} z The new Z order position of the object
  */
 gdjs.RuntimeObject.prototype.setZOrder = function(z) {
     if ( z === this.zOrder ) return;
@@ -394,8 +383,7 @@ gdjs.RuntimeObject.prototype.setZOrder = function(z) {
 /**
  * Get the Z order of the object.
  *
- * @method getZOrder
- * @return {Number} The Z order of the object
+ * @return {number} The Z order of the object
  */
 gdjs.RuntimeObject.prototype.getZOrder = function() {
     return this.zOrder;
@@ -403,8 +391,7 @@ gdjs.RuntimeObject.prototype.getZOrder = function() {
 
 /**
  * Get the container of the object variables
- * @method getVariables
- * @return {variablesContainer} The variables of the object
+ * @return {gdjs.VariablesContainer} The variables of the object
  */
 gdjs.RuntimeObject.prototype.getVariables = function() {
     return this._variables;
@@ -412,9 +399,8 @@ gdjs.RuntimeObject.prototype.getVariables = function() {
 
 /**
  * Get the value of a variable considered as a number. Equivalent of variable.getAsNumber()
- * @method getVariableNumber
- * @param variable The variable to be accessed
- * @return The value of the specified variable
+ * @param {gdjs.Variable} variable The variable to be accessed
+ * @return {number} The value of the specified variable
  * @static
  */
 gdjs.RuntimeObject.getVariableNumber = function(variable) {
@@ -426,8 +412,7 @@ gdjs.RuntimeObject.prototype.getVariableNumber = gdjs.RuntimeObject.getVariableN
  * Return the variable passed as argument without any change.
  * Only for usage by events.
  *
- * @method returnVariable
- * @param variable The variable to be accessed
+ * @param {gdjs.Variable} variable The variable to be accessed
  * @return The specified variable
  * @static
  */
@@ -438,7 +423,6 @@ gdjs.RuntimeObject.prototype.returnVariable = gdjs.RuntimeObject.returnVariable;
 
 /**
  * Get the value of a variable considered as a string. Equivalent of variable.getAsString()
- * @method getVariableString
  * @param variable The variable to be accessed
  * @return The string of the specified variable
  * @static
@@ -450,7 +434,6 @@ gdjs.RuntimeObject.prototype.getVariableString = gdjs.RuntimeObject.getVariableS
 
 /**
  * Get the number of children from a variable
- * @method getVariableChildCount
  * @param variable The variable to be accessed
  * @return The number of children
  * @static
@@ -462,9 +445,8 @@ gdjs.RuntimeObject.getVariableChildCount = function(variable) {
 
 /**
  * Shortcut to set the value of a variable considered as a number
- * @method setVariableNumber
  * @param variable The variable to be changed
- * @param newValue {Number} The value to be set
+ * @param {number} newValue The value to be set
  */
 gdjs.RuntimeObject.setVariableNumber = function(variable, newValue) {
     variable.setNumber(newValue);
@@ -473,7 +455,6 @@ gdjs.RuntimeObject.prototype.setVariableNumber = gdjs.RuntimeObject.setVariableN
 
 /**
  * Shortcut to set the value of a variable considered as a string
- * @method setVariableString
  * @param variable The variable to be changed
  * @param newValue {String} The value to be set
  */
@@ -483,11 +464,10 @@ gdjs.RuntimeObject.setVariableString = function(variable, newValue) {
 gdjs.RuntimeObject.prototype.setVariableString = gdjs.RuntimeObject.setVariableString;
 
 /**
- * @method variableChildExists
  * @static
  * @private
- * @param variable The variable to be tested
- * @param childName {String} The name of the child
+ * @param {gdjs.Variable} variable The variable to be tested
+ * @param {string} childName The name of the child
  */
 gdjs.RuntimeObject.variableChildExists = function(variable, childName) {
     return variable.hasChild(childName);
@@ -495,11 +475,10 @@ gdjs.RuntimeObject.variableChildExists = function(variable, childName) {
 gdjs.RuntimeObject.prototype.variableChildExists = gdjs.RuntimeObject.variableChildExists;
 
 /**
- * @method variableRemoveChild
  * @static
  * @private
- * @param variable The variable to be changed
- * @param childName {String} The name of the child
+ * @param {gdjs.Variable} variable The variable to be changed
+ * @param {string} childName The name of the child
  */
 gdjs.RuntimeObject.variableRemoveChild = function(variable, childName) {
     return variable.removeChild(childName);
@@ -507,10 +486,9 @@ gdjs.RuntimeObject.variableRemoveChild = function(variable, childName) {
 gdjs.RuntimeObject.prototype.variableRemoveChild = gdjs.RuntimeObject.variableRemoveChild;
 
 /**
- * @method variableClearChildren
  * @static
  * @private
- * @param variable The variable to be cleared
+ * @param {gdjs.Variable} variable The variable to be cleared
  */
 gdjs.RuntimeObject.variableClearChildren = function(variable) {
     variable.clearChildren();
@@ -519,9 +497,8 @@ gdjs.RuntimeObject.prototype.variableClearChildren = gdjs.RuntimeObject.variable
 
 /**
  * Shortcut to test if a variable exists for the object.
- * @method hasVariable
- * @param name {String} The variable to be tested
- * @return {Boolean} true if the variable exists.
+ * @param {string} name The variable to be tested
+ * @return {boolean} true if the variable exists.
  */
 gdjs.RuntimeObject.prototype.hasVariable = function(name) {
     return this._variables.has(name);
@@ -529,8 +506,7 @@ gdjs.RuntimeObject.prototype.hasVariable = function(name) {
 
 /**
  * Hide or show the object
- * @method hide
- * @param enable {Boolean} Set it to true to hide the object, false to show it.
+ * @param {boolean} enable Set it to true to hide the object, false to show it.
  */
 gdjs.RuntimeObject.prototype.hide = function(enable) {
     if (enable === undefined) enable = true;
@@ -539,8 +515,7 @@ gdjs.RuntimeObject.prototype.hide = function(enable) {
 
 /**
  * Return true if the object is not hidden.
- * @method isVisible
- * @return {Boolean} true if the object is not hidden.
+ * @return {boolean} true if the object is not hidden.
  */
 gdjs.RuntimeObject.prototype.isVisible = function() {
     return !this.hidden;
@@ -548,8 +523,7 @@ gdjs.RuntimeObject.prototype.isVisible = function() {
 
 /**
  * Return true if the object is hidden.
- * @method isHidden
- * @return {Boolean} true if the object is hidden.
+ * @return {boolean} true if the object is hidden.
  */
 gdjs.RuntimeObject.prototype.isHidden = function() {
     return this.hidden;
@@ -557,8 +531,7 @@ gdjs.RuntimeObject.prototype.isHidden = function() {
 
 /**
  * Return the width of the object
- * @method getWidth
- * @return {Number} The width of the object
+ * @return {number} The width of the object
  */
 gdjs.RuntimeObject.prototype.getWidth = function() {
     return 0;
@@ -566,8 +539,7 @@ gdjs.RuntimeObject.prototype.getWidth = function() {
 
 /**
  * Return the width of the object
- * @method getHeight
- * @return {Number} The height of the object
+ * @return {number} The height of the object
  */
 gdjs.RuntimeObject.prototype.getHeight = function() {
     return 0;
@@ -575,7 +547,7 @@ gdjs.RuntimeObject.prototype.getHeight = function() {
 
 /**
  * Return the X position of the object center, relative to the object position.
- * @method getCenterX
+ * @return {number} the X position of the object center
  */
 gdjs.RuntimeObject.prototype.getCenterX = function() {
     return this.getWidth() / 2;
@@ -583,7 +555,7 @@ gdjs.RuntimeObject.prototype.getCenterX = function() {
 
 /**
  * Return the Y position of the object center, relative to the object position.
- * @method getCenterY
+ * @return {number} the Y position of the object center
  */
 gdjs.RuntimeObject.prototype.getCenterY = function() {
     return this.getHeight() / 2;
@@ -595,11 +567,10 @@ gdjs.RuntimeObject.prototype.getCenterY = function() {
  * Get a force from the garbage, or create a new force is garbage is empty.<br>
  * To be used each time a force is created so as to avoid temporaries objects.
  *
- * @method getRecycledForce
  * @private
- * @param x {Number} The x coordinates of the force
- * @param y {Number} The y coordinates of the force
- * @param clearing {Number} Set the force clearing
+ * @param {number} x The x coordinates of the force
+ * @param {number} y The y coordinates of the force
+ * @param {number} clearing Set the force clearing
  */
 gdjs.RuntimeObject.prototype._getRecycledForce = function(x, y, clearing) {
     if ( gdjs.RuntimeObject.forcesGarbage.length === 0 )
@@ -614,11 +585,10 @@ gdjs.RuntimeObject.prototype._getRecycledForce = function(x, y, clearing) {
 };
 
 /**
- * Add a force to the object to make it moving.
- * @method addForce
- * @param x {Number} The x coordinates of the force
- * @param y {Number} The y coordinates of the force
- * @param clearing {Number} Set the force clearing
+ * Add a force to the object to move it.
+ * @param {number} x The x coordinates of the force
+ * @param {number} y The y coordinates of the force
+ * @param {number} clearing Set the force clearing
  */
 gdjs.RuntimeObject.prototype.addForce = function(x,y, clearing) {
     this._forces.push(this._getRecycledForce(x, y, clearing));
@@ -626,25 +596,24 @@ gdjs.RuntimeObject.prototype.addForce = function(x,y, clearing) {
 
 /**
  * Add a force using polar coordinates.
- * @method addPolarForce
- * @param angle {Number} The angle of the force
- * @param len {Number} The length of the force
- * @param clearing {Number} Set the force clearing
+ * @param {number} angle The angle of the force, in degrees.
+ * @param {number} len The length of the force, in pixels.
+ * @param {number} clearing Set the force clearing
  */
 gdjs.RuntimeObject.prototype.addPolarForce = function(angle, len, clearing) {
-    var forceX = Math.cos(angle/180*3.14159)*len;
-    var forceY = Math.sin(angle/180*3.14159)*len;
+    var angleInRadians = angle/180*3.14159; //TODO: Benchmark with Math.PI
+    var forceX = Math.cos(angleInRadians)*len;
+    var forceY = Math.sin(angleInRadians)*len;
 
     this._forces.push(this._getRecycledForce(forceX, forceY, clearing));
 };
 
 /**
  * Add a force oriented toward a position
- * @method addForceTowardPosition
- * @param x {Number} The target x position
- * @param y {Number} The target y position
- * @param len {Number} The force length, in pixels.
- * @param clearing {Number} Set the force clearing
+ * @param {number} x The target x position
+ * @param {number} y The target y position
+ * @param {number} len The force length, in pixels.
+ * @param {number} clearing Set the force clearing
  */
 gdjs.RuntimeObject.prototype.addForceTowardPosition = function(x,y, len, clearing) {
 
@@ -659,10 +628,9 @@ gdjs.RuntimeObject.prototype.addForceTowardPosition = function(x,y, len, clearin
 /**
  * Add a force oriented toward another object.<br>
  * (Shortcut for addForceTowardPosition)
- * @method addForceTowardObject
- * @param obj The target object
- * @param len {Number} The force length, in pixels.
- * @param clearing {Number} Set the force clearing
+ * @param {gdjs.RuntimeObject} object The target object
+ * @param {number} len The force length, in pixels.
+ * @param {number} clearing Set the force clearing
  */
 gdjs.RuntimeObject.prototype.addForceTowardObject = function(obj, len, clearing) {
     if ( obj == null ) return;
@@ -674,7 +642,6 @@ gdjs.RuntimeObject.prototype.addForceTowardObject = function(obj, len, clearing)
 
 /**
  * Deletes all forces applied on the object
- * @method clearForces
  */
 gdjs.RuntimeObject.prototype.clearForces = function() {
     gdjs.RuntimeObject.forcesGarbage.push.apply(gdjs.RuntimeObject.forcesGarbage, this._forces);
@@ -683,8 +650,7 @@ gdjs.RuntimeObject.prototype.clearForces = function() {
 
 /**
  * Return true if no forces are applied on the object.
- * @method hasNoForces
- * @return {Boolean} true if no forces are applied on the object.
+ * @return {boolean} true if no forces are applied on the object.
  */
 gdjs.RuntimeObject.prototype.hasNoForces = function() {
     return this._forces.length === 0;
@@ -693,7 +659,6 @@ gdjs.RuntimeObject.prototype.hasNoForces = function() {
 /**
  * Called once a step by runtimeScene to update forces magnitudes and
  * remove null ones.
- * @method updateForces
  */
 gdjs.RuntimeObject.prototype.updateForces = function(elapsedTime) {
     for(var i = 0;i<this._forces.length;) {
@@ -713,8 +678,7 @@ gdjs.RuntimeObject.prototype.updateForces = function(elapsedTime) {
 /**
  * Return a force which is the sum of all forces applied on the object.
  *
- * @method getAverageForce
- * @return {force} A force object.
+ * @return {gdjs.Force} A force object.
  */
 gdjs.RuntimeObject.prototype.getAverageForce = function() {
     var averageX = 0;
@@ -733,10 +697,9 @@ gdjs.RuntimeObject.prototype.getAverageForce = function() {
  * Return true if the average angle of the forces applied on the object
  * is in a given range.
  *
- * @method averageForceAngleIs
- * @param angle {Number} The angle to be tested.
- * @param toleranceInDegrees {Number} The length of the range :
- * @return {Boolean} true if the difference between the average angle of the forces
+ * @param {number} angle The angle to be tested.
+ * @param {number} toleranceInDegrees The length of the range :
+ * @return {boolean} true if the difference between the average angle of the forces
  * and the angle parameter is inferior to toleranceInDegrees parameter.
  */
 gdjs.RuntimeObject.prototype.averageForceAngleIs = function(angle, toleranceInDegrees) {
@@ -751,10 +714,11 @@ gdjs.RuntimeObject.prototype.averageForceAngleIs = function(angle, toleranceInDe
 
 /**
  * Get the hit boxes for the object.<br>
- * The default implementation returns a basic bouding box based on the result of getWidth and
- * getHeight. You should probably redefine updateHitBoxes instead of this function.
+ * The default implementation returns a basic bouding box based the size (getWidth and
+ * getHeight) and the center point of the object (getCenterX and getCenterY). 
+ * 
+ * You should probably redefine updateHitBoxes instead of this function.
  *
- * @method getHitBoxes
  * @return {Array} An array composed of polygon.
  */
 gdjs.RuntimeObject.prototype.getHitBoxes = function() {
@@ -771,36 +735,61 @@ gdjs.RuntimeObject.prototype.getHitBoxes = function() {
 };
 
 /**
- * Update the hit boxes for the object.<br>
- * The default implementation set a basic bouding box based on the result of getWidth and
- * getHeight.
+ * Update the hit boxes for the object.
+ * 
+ * The default implementation set a basic bounding box based on the size (getWidth and
+ * getHeight) and the center point of the object (getCenterX and getCenterY).
+ * Result is cached until invalidated (by a position change, angle change...).
  *
  * You should not call this function by yourself, it is called when necessary by getHitBoxes method.
  * However, you can redefine it if your object need custom hit boxes.
- *
- * @method updateHitBoxes
  */
 gdjs.RuntimeObject.prototype.updateHitBoxes = function() {
-
-    //Ensure we're using the default hitbox (a single rectangle)
     this.hitBoxes = this._defaultHitBoxes;
-
     var width = this.getWidth();
     var height = this.getHeight();
-    this.hitBoxes[0].vertices[0][0] =-width/2.0;
-    this.hitBoxes[0].vertices[0][1] =-height/2.0;
-    this.hitBoxes[0].vertices[1][0] =+width/2.0;
-    this.hitBoxes[0].vertices[1][1] =-height/2.0;
-    this.hitBoxes[0].vertices[2][0] =+width/2.0;
-    this.hitBoxes[0].vertices[2][1] =+height/2.0;
-    this.hitBoxes[0].vertices[3][0] =-width/2.0;
-    this.hitBoxes[0].vertices[3][1] =+height/2.0;
+    var centerX = this.getCenterX();
+    var centerY = this.getCenterY();
 
-    this.hitBoxes[0].rotate(this.getAngle()/180*3.14159);
-    this.hitBoxes[0].move(this.getDrawableX()+this.getCenterX(), this.getDrawableY()+this.getCenterY());
+    if (this.getCenterX() === width / 2 && this.getCenterY() === height / 2) {
+        this.hitBoxes[0].vertices[0][0] =-width/2.0;
+        this.hitBoxes[0].vertices[0][1] =-height/2.0;
+        this.hitBoxes[0].vertices[1][0] =+width/2.0;
+        this.hitBoxes[0].vertices[1][1] =-height/2.0;
+        this.hitBoxes[0].vertices[2][0] =+width/2.0;
+        this.hitBoxes[0].vertices[2][1] =+height/2.0;
+        this.hitBoxes[0].vertices[3][0] =-width/2.0;
+        this.hitBoxes[0].vertices[3][1] =+height/2.0;
+        -
+        this.hitBoxes[0].rotate(this.getAngle()/180*Math.PI);
+        this.hitBoxes[0].move(this.getDrawableX()+this.getCenterX(), this.getDrawableY()+this.getCenterY());
+    } else {
+        this.hitBoxes[0].vertices[0][0] = 0;
+        this.hitBoxes[0].vertices[0][1] = 0;
+        this.hitBoxes[0].vertices[1][0] = width;
+        this.hitBoxes[0].vertices[1][1] = 0;
+        this.hitBoxes[0].vertices[2][0] = width;
+        this.hitBoxes[0].vertices[2][1] = height;
+        this.hitBoxes[0].vertices[3][0] = 0;
+        this.hitBoxes[0].vertices[3][1] = height;
+
+        this.hitBoxes[0].move(-centerX, -centerY);
+        this.hitBoxes[0].rotate(this.getAngle()/180*Math.PI);
+        this.hitBoxes[0].move(this.getDrawableX()+centerX, this.getDrawableY()+centerY);
+    }
 };
 
-//Experimental
+/**
+ * Get the AABB (axis aligned bounding box) for the object.
+ * 
+ * The default implementation uses either the position/size of the object (when angle is 0) or
+ * hitboxes (when angle is not 0) to compute the bounding box.
+ * Result is cached until invalidated (by a position change, angle change...).
+ * 
+ * You should probably redefine updateAABB instead of this function.
+ *
+ * @return The bounding box (example: {min: [10,5], max:[20,10]})
+ */
 gdjs.RuntimeObject.prototype.getAABB = function() {
     if ( this.hitBoxesDirty ) {
         this.updateHitBoxes();
@@ -811,18 +800,54 @@ gdjs.RuntimeObject.prototype.getAABB = function() {
     return this.aabb;
 };
 
+/**
+ * Update the AABB (axis aligned bounding box) for the object.
+ * 
+ * Default implementation uses either the position/size of the object (when angle is 0) or
+ * hitboxes (when angle is not 0) to compute the bounding box.
+ * 
+ * You should not call this function by yourself, it is called when necessary by getAABB method.
+ * However, you can redefine it if your object can have a faster implementation.
+ */
 gdjs.RuntimeObject.prototype.updateAABB = function() {
-    this.aabb.min[0] = this.getDrawableX();
-    this.aabb.min[1] = this.getDrawableY();
-    this.aabb.max[0] = this.aabb.min[0] + this.getWidth();
-    this.aabb.max[1] = this.aabb.min[1] + this.getHeight();
+    if (this.getAngle() === 0) {
+        // Fast/simple computation of AABB for non rotated object
+        // (works even for object with non default center/origin
+        // because we're using getDrawableX/Y)
+        this.aabb.min[0] = this.getDrawableX();
+        this.aabb.min[1] = this.getDrawableY();
+        this.aabb.max[0] = this.aabb.min[0] + this.getWidth();
+        this.aabb.max[1] = this.aabb.min[1] + this.getHeight();
+    } else {
+        // Use hitboxes if object is rotated to ensure that the AABB
+        // is properly bounding the whole object.
+        // Slower (10-15% slower).
+        var first = true;
+        for(var i = 0;i<this.hitBoxes.length;i++) {
+            for(var j = 0;j<this.hitBoxes[i].vertices.length;j++) {
+                var vertex = this.hitBoxes[i].vertices[j];
+    
+                if (first) { 
+                    this.aabb.min[0] = vertex[0];
+                    this.aabb.max[0] = vertex[0];
+                    this.aabb.min[1] = vertex[1];
+                    this.aabb.max[1] = vertex[1];
+                    first = false;
+                } else {
+                    this.aabb.min[0] = Math.min(this.aabb.min[0], vertex[0]);
+                    this.aabb.max[0] = Math.max(this.aabb.max[0], vertex[0]);
+                    this.aabb.min[1] = Math.min(this.aabb.min[1], vertex[1]);
+                    this.aabb.max[1] = Math.max(this.aabb.max[1], vertex[1]);
+                }
+            }
+        }
+    }
 };
 
 //Behaviors:
 
 /**
  * Call each behavior stepPreEvents method.
- * @method stepBehaviorsPreEvents
  */
 gdjs.RuntimeObject.prototype.stepBehaviorsPreEvents = function(runtimeScene) {
     for(var i = 0, len = this._behaviors.length;i<len;++i) {
@@ -832,7 +857,6 @@ gdjs.RuntimeObject.prototype.stepBehaviorsPreEvents = function(runtimeScene) {
 
 /**
  * Call each behavior stepPostEvents method.
- * @method stepBehaviorsPostEvents
  */
 gdjs.RuntimeObject.prototype.stepBehaviorsPostEvents = function(runtimeScene) {
     for(var i = 0, len = this._behaviors.length;i<len;++i) {
@@ -841,10 +865,12 @@ gdjs.RuntimeObject.prototype.stepBehaviorsPostEvents = function(runtimeScene) {
 };
 
 /**
- * Get a behavior from its name.<br>
+ * Get a behavior from its name.
+ * 
  * Be careful, the behavior must exists, no check is made on the name.
- * @method getBehavior
+ * 
  * @param name {String} The behavior name.
+ * @return {gdjs.RuntimeBehavior} The behavior with the given name, or undefined.
  */
 gdjs.RuntimeObject.prototype.getBehavior = function(name) {
     return this._behaviorsTable.get(name);
@@ -853,7 +879,6 @@ gdjs.RuntimeObject.prototype.getBehavior = function(name) {
 /**
  * Check if a behavior is used by the object.
  *
- * @method hasBehavior
  * @param name {String} The behavior name.
  */
 gdjs.RuntimeObject.prototype.hasBehavior = function(name) {
@@ -863,9 +888,8 @@ gdjs.RuntimeObject.prototype.hasBehavior = function(name) {
 /**
  * De/activate a behavior of the object.
  *
- * @method activateBehavior
  * @param name {String} The behavior name.
- * @param enable {Boolean} true to activate the behavior
+ * @param enable {boolean} true to activate the behavior
  */
 gdjs.RuntimeObject.prototype.activateBehavior = function(name, enable) {
     if ( this._behaviorsTable.containsKey(name) ) {
@@ -876,23 +900,122 @@ gdjs.RuntimeObject.prototype.activateBehavior = function(name, enable) {
 /**
  * Check if a behavior is activated
  *
- * @method behaviorActivated
  * @param name {String} The behavior name.
  * @return true if the behavior is activated.
  */
 gdjs.RuntimeObject.prototype.behaviorActivated = function(name) {
     if ( this._behaviorsTable.containsKey(name) ) {
-        this._behaviorsTable.get(name).activated();
+        return this._behaviorsTable.get(name).activated();
     }
 
     return false;
+};
+
+//Timers:
+
+/**
+ * Updates the object timers. Called once during the game loop, before events and rendering.
+ * @param {number} elapsedTime The elapsed time since the previous frame in milliseconds.
+ */
+gdjs.RuntimeObject.prototype.updateTimers = function(elapsedTime) {
+    for (var name in this._timers.items) {
+        if (this._timers.items.hasOwnProperty(name)) {
+            this._timers.items[name].updateTime(elapsedTime);
+        }
+    }
+};
+
+/**
+ * Test a timer elapsed time, if the timer doesn't exist it is created
+ * @param {String} timerName The timer name
+ * @param {number} timeInSeconds The time value to check in seconds
+ * @return {boolean} True if the timer exists and its value is greater than or equal than the given time, false otherwise
+ */
+gdjs.RuntimeObject.prototype.timerElapsedTime = function(timerName, timeInSeconds) {
+    if ( !this._timers.containsKey(timerName) ) {
+        this._timers.put(timerName, new gdjs.Timer(timerName));
+        return false;
+    }
+
+    return this.getTimerElapsedTimeInSeconds(timerName) >= timeInSeconds;
+};
+
+/**
+ * Test a if a timer is paused
+ * @param {String} timerName The timer name
+ * @return {boolean} True if the timer exists and is paused, false otherwise
+ */
+gdjs.RuntimeObject.prototype.timerPaused = function(timerName) {
+    if ( !this._timers.containsKey(timerName) ) {
+        return false;
+    }
+
+    return this._timers.get(timerName).isPaused();
+};
+
+/**
+ * Reset a timer, if the timer doesn't exist it is created
+ * @param {String} timerName The timer name
+ */
+gdjs.RuntimeObject.prototype.resetTimer = function(timerName) {
+    if ( !this._timers.containsKey(timerName) ) {
+        this._timers.put(timerName, new gdjs.Timer(timerName));
+    }
+
+    this._timers.get(timerName).reset();
+};
+
+/**
+ * Pause a timer, if the timer doesn't exist it is created
+ * @param {String} timerName The timer name
+ */
+gdjs.RuntimeObject.prototype.pauseTimer = function(timerName) {
+    if ( !this._timers.containsKey(timerName) ) {
+        this._timers.put(timerName, new gdjs.Timer(timerName));
+    }
+
+    this._timers.get(timerName).setPaused(true);
+};
+
+/**
+ * Unpause a timer, if the timer doesn't exist it is created
+ * @param {String} timerName The timer name
+ */
+gdjs.RuntimeObject.prototype.unpauseTimer = function(timerName) {
+    if ( !this._timers.containsKey(timerName) ) {
+        this._timers.put(timerName, new gdjs.Timer(timerName));
+    }
+
+    this._timers.get(timerName).setPaused(false);
+};
+
+/**
+ * Remove a timer
+ * @param {String} timerName The timer name
+ */
+gdjs.RuntimeObject.prototype.removeTimer = function(timerName) {
+    if ( this._timers.containsKey(timerName) ) {
+        this._timers.remove(timerName);
+    }
+};
+
+/**
+ * Get a timer elapsed time.
+ * @param {String} timerName The timer name
+ * @return {number} The timer elapsed time in seconds, 0 if the timer doesn't exist
+ */
+gdjs.RuntimeObject.prototype.getTimerElapsedTimeInSeconds = function(timerName) {
+    if ( !this._timers.containsKey(timerName) ) {
+        return 0;
+    }
+
+    return this._timers.get(timerName).getTime() / 1000.0;
 };
 
 //Other :
 
 /**
  * Separate the object from others objects, using their hitboxes.
- * @method separateFromObjects
  * @param objects Objects
  * @return true if the object was moved
  */
@@ -926,7 +1049,6 @@ gdjs.RuntimeObject.prototype.separateFromObjects = function(objects) {
 
 /**
  * Separate the object from others objects, using their hitboxes.
- * @method separateFromObjectsList
  * @param objectsLists Tables of objects
  * @return true if the object was moved
  */
@@ -965,18 +1087,16 @@ gdjs.RuntimeObject.prototype.separateFromObjectsList = function(objectsLists) {
 };
 
 /**
- * Get the distance, in pixels, to another object.
- * @method getDistanceToObject
- * @param otherObject The other object
+ * Get the distance, in pixels, between *the center* of this object and another object.
+ * @param {gdjs.RuntimeObject} otherObject The other object
  */
 gdjs.RuntimeObject.prototype.getDistanceToObject = function(otherObject) {
     return Math.sqrt(this.getSqDistanceToObject(otherObject));
 };
 
 /**
- * Get the squared distance, in pixels, to another object.
- * @method getSqDistanceToObject
- * @param otherObject The other object
+ * Get the squared distance, in pixels, between *the center* of this object and another object.
+ * @param {gdjs.RuntimeObject} otherObject The other object
  */
 gdjs.RuntimeObject.prototype.getSqDistanceToObject = function(otherObject) {
     if ( otherObject === null ) return 0;
@@ -988,10 +1108,9 @@ gdjs.RuntimeObject.prototype.getSqDistanceToObject = function(otherObject) {
 };
 
 /**
- * Get the squared distance, in pixels, to a position.
- * @method getSqDistanceTo
- * @param pointX {Number} X position
- * @param pointY {Number} Y position
+ * Get the squared distance, in pixels, from the *object center* to a position.
+ * @param {number} pointX X position
+ * @param {number} pointY Y position
  */
 gdjs.RuntimeObject.prototype.getSqDistanceTo = function(pointX, pointY) {
     var x = this.getDrawableX()+this.getCenterX() - pointX;
@@ -1001,38 +1120,37 @@ gdjs.RuntimeObject.prototype.getSqDistanceTo = function(pointX, pointY) {
 };
 
 /**
- * Put the object around a position, with a specific distance and angle.<br>
- * The distance is computed between the position and the center of the object.
+ * Put the object around a position, with a specific distance and angle.
+ * The distance and angle are computed between the position and *the center of the object*.
  *
- * @method putAround
- * @param x {Number} The x position of the target
- * @param y {Number} The y position of the target
- * @param distance {Number} The distance between the object and the target
- * @param angleInDegrees {Number} The angle between the object and the target, in degrees.
+ * @param {number} x The x position of the target
+ * @param {number} y The y position of the target
+ * @param {number} distance The distance between the object and the target, in pixels.
+ * @param {number} angleInDegrees The angle between the object and the target, in degrees.
  */
 gdjs.RuntimeObject.prototype.putAround = function(x,y,distance,angleInDegrees) {
     var angle = angleInDegrees/180*3.14159;
 
-    this.setX( x + Math.cos(angle)*distance - this.getCenterX() );
-    this.setY( y + Math.sin(angle)*distance - this.getCenterY() );
+    // Offset the position by the center, as PutAround* methods should position the center
+    // of the object (just like GetSqDistanceTo, RaycastTest uses center too).
+    this.setX(x + Math.cos(angle)*distance + this.getX() - (this.getDrawableX() + this.getCenterX()));
+    this.setY(y + Math.sin(angle)*distance + this.getY() - (this.getDrawableY() + this.getCenterY()));
 };
 
 /**
- * Put the object around another object, with a specific distance and angle.<br>
- * The distance is computed between the centers of the objects.
+ * Put the object around another object, with a specific distance and angle.
+ * The distance and angle are computed between *the centers of the objects*.
  *
- * @method putAround
  * @param obj The target object
- * @param distance {Number} The distance between the object and the target
- * @param angleInDegrees {Number} The angle between the object and the target, in degrees.
+ * @param {number} distance The distance between the object and the target
+ * @param {number} angleInDegrees The angle between the object and the target, in degrees.
  */
 gdjs.RuntimeObject.prototype.putAroundObject = function(obj,distance,angleInDegrees) {
-    this.putAround(obj.getX()+obj.getCenterX(), obj.getY()+obj.getCenterY(),
+    this.putAround(obj.getDrawableX()+obj.getCenterX(), obj.getDrawableY()+obj.getCenterY(),
                    distance, angleInDegrees);
 };
 
 /**
- * @method separateObjectsWithoutForces
  * @deprecated
  * @param objectsLists Tables of objects
  */
@@ -1068,7 +1186,6 @@ gdjs.RuntimeObject.prototype.separateObjectsWithoutForces = function(objectsList
 };
 
 /**
- * @method SeparateObjectsWithForces
  * @deprecated
  * @param objectsLists Tables of objects
  */
@@ -1115,7 +1232,6 @@ gdjs.RuntimeObject.prototype.separateObjectsWithForces = function(objectsLists, 
 
 /**
  * Return true if the hitboxes of two objects are overlapping
- * @method collisionTest
  * @static
  * @param obj1 The first runtimeObject
  * @param obj2 The second runtimeObject
@@ -1151,30 +1267,28 @@ gdjs.RuntimeObject.collisionTest = function(obj1, obj2) {
 };
 
 /**
- * @method raycastTest
- * @param x {Number} The raycast source X
- * @param y {Number} The raycast source Y
- * @param angle {Number} The raycast angle
- * @param dist {Number} The raycast max distance
- * @param closest {Boolean} Get the closest or farthest collision mask result?
+ * @param {number} x The raycast source X
+ * @param {number} y The raycast source Y
+ * @param {number} endX The raycast end position X
+ * @param {number} endY The raycast end position Y
+ * @param closest {boolean} Get the closest or farthest collision mask result?
  * @return A raycast result with the contact points and distances
  */
-gdjs.RuntimeObject.prototype.raycastTest = function(x, y, angle, dist, closest) {
+gdjs.RuntimeObject.prototype.raycastTest = function(x, y, endX, endY, closest) {
     var objW = this.getWidth();
     var objH = this.getHeight();
     var diffX = this.getDrawableX()+this.getCenterX() - x;
     var diffY = this.getDrawableY()+this.getCenterY() - y;
-    var boundingRadius = Math.sqrt(objW*objW + objH*objH)/2.0;
+    var sqBoundingR = (objW*objW + objH*objH) / 4.0;
+    var sqDist = (endX - x)*(endX - x) + (endY - y)*(endY - y);
 
     var result = gdjs.Polygon.raycastTest._statics.result;
     result.collision = false;
 
-    if ( Math.sqrt(diffX*diffX + diffY*diffY) > boundingRadius + dist )
+    if ( diffX*diffX + diffY*diffY > sqBoundingR + sqDist + 2*Math.sqrt(sqDist*sqBoundingR) )
         return result;
     
-    var endX = x + dist*Math.cos(angle*Math.PI/180.0);
-    var endY = y + dist*Math.sin(angle*Math.PI/180.0);
-    var testSqDist = closest ? dist*dist : 0;
+    var testSqDist = closest ? sqDist : 0;
 
     var hitBoxes = this.getHitBoxes();
     for (var i=0; i<hitBoxes.length; i++) {
@@ -1184,7 +1298,7 @@ gdjs.RuntimeObject.prototype.raycastTest = function(x, y, angle, dist, closest) 
                 testSqDist = res.closeSqDist;
                 result = res;
             }
-            else if ( !closest && (res.farSqDist > testSqDist) && (res.farSqDist <= dist*dist) ) {
+            else if ( !closest && (res.farSqDist > testSqDist) && (res.farSqDist <= sqDist) ) {
                 testSqDist = res.farSqDist;
                 result = res;
             }
@@ -1200,7 +1314,6 @@ gdjs.RuntimeObject.prototype.raycastTest = function(x, y, angle, dist, closest) 
  * The position should be in "world" coordinates, i.e use gdjs.Layer.convertCoords
  * if you need to pass the mouse or a touch position that you get from gdjs.InputManager.
  *
- * @method insideObject
  */
 gdjs.RuntimeObject.prototype.insideObject = function(x, y) {
     return this.getDrawableX() <= x
@@ -1211,7 +1324,6 @@ gdjs.RuntimeObject.prototype.insideObject = function(x, y) {
 
 /**
  * Check the distance between two objects.
- * @method distanceTest
  * @static
  */
 gdjs.RuntimeObject.distanceTest = function(obj1, obj2, distance) {
@@ -1221,7 +1333,6 @@ gdjs.RuntimeObject.distanceTest = function(obj1, obj2, distance) {
 /**
  * Return true if the cursor, or any touch, is on the object.
  *
- * @method cursorOnObject
  * @return true if the cursor, or any touch, is on the object.
  */
 gdjs.RuntimeObject.prototype.cursorOnObject = function(runtimeScene) {
@@ -1247,8 +1358,7 @@ gdjs.RuntimeObject.prototype.cursorOnObject = function(runtimeScene) {
 };
 
 /**
- * \brief Check if a point is inside the object collision hitboxes.
- * @method isCollidingWithPoint
+ * Check if a point is inside the object collision hitboxes.
  * @param pointX The point x coordinate.
  * @param pointY The point y coordinate.
  * @return true if the point is inside the object collision hitboxes.
@@ -1267,8 +1377,7 @@ gdjs.RuntimeObject.prototype.isCollidingWithPoint = function(pointX, pointY) {
 /**
  * Get the identifier associated to an object name :<br>
  * Some features may want to compare objects name a large number of time. In this case,
- * it may be more efficient to compare objects name identifier ( see gdjs.RuntimeObject.getNameId ).
- * @method getNameIdentifier
+ * it may be more efficient to compare objects name identifier.
  * @static
  */
 gdjs.RuntimeObject.getNameIdentifier = function(name) {

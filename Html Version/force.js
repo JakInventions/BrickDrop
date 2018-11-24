@@ -5,20 +5,19 @@
  */
 
 /**
- * A Force is used to move objects.
+ * A vector used to move objects.
  *
- * @namespace gdjs
+ * @memberof gdjs
  * @class Force
- * @constructor
- * @param x The initial x component
- * @param y The initial y component
- * @param clearing The clearing
+ * @param {number} x The initial x component
+ * @param {number} y The initial y component
+ * @param {number} damping The damping (0 for a force that disappear on next frame, 1 to keep it)
  */
 gdjs.Force = function(x,y, clearing)
 {
     this._x = x || 0;
     this._y = y || 0;
-    this._angle = Math.atan2(y,x)*180/3.14159;
+    this._angle = Math.atan2(y,x)*180/Math.PI;
     this._length = Math.sqrt(x*x+y*y);
     this._dirty = false;
     this._clearing = clearing;
@@ -26,7 +25,6 @@ gdjs.Force = function(x,y, clearing)
 
 /**
  * Returns the X component of the force.
- * @method getX
  */
 gdjs.Force.prototype.getX = function() {
 	return this._x;
@@ -34,7 +32,6 @@ gdjs.Force.prototype.getX = function() {
 
 /**
  * Returns the Y component of the force.
- * @method getY
  */
 gdjs.Force.prototype.getY = function() {
 	return this._y;
@@ -42,8 +39,7 @@ gdjs.Force.prototype.getY = function() {
 
 /**
  * Set the x component of the force.
- * @method setX
- * @param x {Number} The new X component
+ * @param {number} x The new X component
  */
 gdjs.Force.prototype.setX = function(x) {
 	this._x = x;
@@ -52,8 +48,7 @@ gdjs.Force.prototype.setX = function(x) {
 
 /**
  * Set the y component of the force.
- * @method setY
- * @param y {Number} The new Y component
+ * @param {number} y The new Y component
  */
 gdjs.Force.prototype.setY = function(y) {
 	this._y = y;
@@ -62,8 +57,7 @@ gdjs.Force.prototype.setY = function(y) {
 
 /**
  * Set the angle of the force.
- * @method setAngle
- * @param angle {Number} The new angle
+ * @param {number} angle The new angle
  */
 gdjs.Force.prototype.setAngle = function(angle) {
 
@@ -73,34 +67,34 @@ gdjs.Force.prototype.setAngle = function(angle) {
 	}
 
 	this._angle = angle;
-	this._x = Math.cos(angle/180*3.14159)*this._length;
-	this._y = Math.sin(angle/180*3.14159)*this._length;
+	var angleInRadians = angle/180*Math.PI;
+	this._x = Math.cos(angleInRadians)*this._length;
+	this._y = Math.sin(angleInRadians)*this._length;
 }
 
 /**
  * Set the length of the force.
- * @method setLength
- * @param len {Number} The length
+ * @param {number} len The length
  */
 gdjs.Force.prototype.setLength = function(len) {
 
 	if ( this._dirty ) {
-		this._angle = Math.atan2(this._y, this._x)*180/3.14159;
+		this._angle = Math.atan2(this._y, this._x)*180/Math.PI;
 		this._dirty = false;
 	}
 
 	this._length = len;
-	this._x = Math.cos(this._angle/180*3.14159)*this._length;
-	this._y = Math.sin(this._angle/180*3.14159)*this._length;
+	var angleInRadians = this._angle/180*Math.PI;
+	this._x = Math.cos(angleInRadians)*this._length;
+	this._y = Math.sin(angleInRadians)*this._length;
 }
 
 /**
  * Get the angle of the force
- * @method getAngle
  */
 gdjs.Force.prototype.getAngle = function() {
 	if ( this._dirty ) {
-		this._angle = Math.atan2(this._y, this._x)*180/3.14159;
+		this._angle = Math.atan2(this._y, this._x)*180/Math.PI;
 		this._length = Math.sqrt(this._x*this._x+this._y*this._y);
 
 		this._dirty = false;
@@ -112,11 +106,10 @@ gdjs.Force.prototype.getAngle = function() {
 
 /**
  * Get the length of the force
- * @method getLength
  */
 gdjs.Force.prototype.getLength = function() {
 	if ( this._dirty ) {
-		this._angle = Math.atan2(this._y, this._x)*180/3.14159;
+		this._angle = Math.atan2(this._y, this._x)*180/Math.PI;
 		this._length = Math.sqrt(this._x*this._x+this._y*this._y);
 
 		this._dirty = false;
@@ -127,7 +120,6 @@ gdjs.Force.prototype.getLength = function() {
 
 /**
  * Return true if the force is temporary, false if it is permanent.
- * @method getClearing
  */
 gdjs.Force.prototype.getClearing = function() {
 	return this._clearing;
@@ -135,7 +127,7 @@ gdjs.Force.prototype.getClearing = function() {
 
 /**
  * Set if the force clearing.
- * @method setClearing
+ * @param {number} clearing The new value
  */
 gdjs.Force.prototype.setClearing = function(clearing) {
 	this._clearing = clearing;

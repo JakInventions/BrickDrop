@@ -7,6 +7,7 @@
     "revision": 0
   },
   "properties": {
+    "adMobAppId": "",
     "folderProject": false,
     "linuxExecutableFilename": "",
     "macExecutableFilename": "",
@@ -15,6 +16,7 @@
     "projectFile": "C:\\Users\\techn\\Desktop\\githubStuff\\BrickDrop\\BrickDrop\\BrickDrop.json",
     "sizeOnStartupMode": "",
     "useExternalSourceFiles": false,
+    "version": "1.0.0",
     "winExecutableFilename": "",
     "winExecutableIconFile": "",
     "name": "Brick Drop",
@@ -124,6 +126,7 @@
         "alwaysLoaded": false,
         "file": "../Player.png",
         "kind": "image",
+        "metadata": "",
         "name": "Player.png",
         "smoothed": true,
         "userAdded": true
@@ -132,6 +135,7 @@
         "alwaysLoaded": false,
         "file": "../Left.png",
         "kind": "image",
+        "metadata": "",
         "name": "Left.png",
         "smoothed": true,
         "userAdded": false
@@ -140,6 +144,7 @@
         "alwaysLoaded": false,
         "file": "../Right.png",
         "kind": "image",
+        "metadata": "",
         "name": "Right.png",
         "smoothed": true,
         "userAdded": false
@@ -148,6 +153,7 @@
         "alwaysLoaded": false,
         "file": "../LeftEdge.png",
         "kind": "image",
+        "metadata": "",
         "name": "LeftEdge.png",
         "smoothed": true,
         "userAdded": false
@@ -156,6 +162,7 @@
         "alwaysLoaded": false,
         "file": "../RightEdge.png",
         "kind": "image",
+        "metadata": "",
         "name": "RightEdge.png",
         "smoothed": true,
         "userAdded": true
@@ -164,6 +171,7 @@
         "alwaysLoaded": false,
         "file": "../Start Button.png",
         "kind": "image",
+        "metadata": "",
         "name": "Start Button.png",
         "smoothed": true,
         "userAdded": false
@@ -172,6 +180,7 @@
         "alwaysLoaded": false,
         "file": "../icon.png",
         "kind": "image",
+        "metadata": "",
         "name": "icon.png",
         "smoothed": true,
         "userAdded": false
@@ -180,6 +189,7 @@
         "alwaysLoaded": false,
         "file": "../Fireball.png",
         "kind": "image",
+        "metadata": "",
         "name": "Fireball.png",
         "smoothed": true,
         "userAdded": false
@@ -188,6 +198,7 @@
         "alwaysLoaded": false,
         "file": "../StartButton.png",
         "kind": "image",
+        "metadata": "",
         "name": "StartButton.png",
         "smoothed": true,
         "userAdded": false
@@ -196,6 +207,7 @@
         "alwaysLoaded": false,
         "file": "../StartButton2.png",
         "kind": "image",
+        "metadata": "",
         "name": "StartButton2.png",
         "smoothed": true,
         "userAdded": true
@@ -204,6 +216,7 @@
         "alwaysLoaded": false,
         "file": "../png/Objects/Bullet_000.png",
         "kind": "image",
+        "metadata": "",
         "name": "Bullet_000.png",
         "smoothed": true,
         "userAdded": true
@@ -212,6 +225,7 @@
         "alwaysLoaded": false,
         "file": "../png/Objects/Bullet_001.png",
         "kind": "image",
+        "metadata": "",
         "name": "Bullet_001.png",
         "smoothed": true,
         "userAdded": true
@@ -220,6 +234,7 @@
         "alwaysLoaded": false,
         "file": "../png/Objects/Bullet_002.png",
         "kind": "image",
+        "metadata": "",
         "name": "Bullet_002.png",
         "smoothed": true,
         "userAdded": true
@@ -228,6 +243,7 @@
         "alwaysLoaded": false,
         "file": "../png/Objects/Bullet_003.png",
         "kind": "image",
+        "metadata": "",
         "name": "Bullet_003.png",
         "smoothed": true,
         "userAdded": true
@@ -236,6 +252,7 @@
         "alwaysLoaded": false,
         "file": "../png/Objects/Bullet_004.png",
         "kind": "image",
+        "metadata": "",
         "name": "Bullet_004.png",
         "smoothed": true,
         "userAdded": true
@@ -244,6 +261,7 @@
         "alwaysLoaded": false,
         "file": "../../../../../Jaks_Stuff/Jak_Logo/Jak_Logo.png",
         "kind": "image",
+        "metadata": "",
         "name": "Jak_Logo.png",
         "smoothed": true,
         "userAdded": false
@@ -252,6 +270,7 @@
         "alwaysLoaded": false,
         "file": "../Box.png",
         "kind": "image",
+        "metadata": "",
         "name": "Box.png",
         "smoothed": true,
         "userAdded": false
@@ -260,6 +279,7 @@
         "alwaysLoaded": false,
         "file": "../pause.png",
         "kind": "image",
+        "metadata": "",
         "name": "pause.png",
         "smoothed": true,
         "userAdded": false
@@ -268,6 +288,7 @@
         "alwaysLoaded": false,
         "file": "../Textbox.png",
         "kind": "image",
+        "metadata": "",
         "name": "Textbox.png",
         "smoothed": true,
         "userAdded": false
@@ -276,6 +297,7 @@
         "alwaysLoaded": false,
         "file": "../ResumeButton.png",
         "kind": "image",
+        "metadata": "",
         "name": "ResumeButton.png",
         "smoothed": true,
         "userAdded": false
@@ -284,6 +306,7 @@
         "alwaysLoaded": false,
         "file": "../RestartButton.png",
         "kind": "image",
+        "metadata": "",
         "name": "RestartButton.png",
         "smoothed": true,
         "userAdded": false
@@ -292,6 +315,7 @@
         "alwaysLoaded": false,
         "file": "../pause2.png",
         "kind": "image",
+        "metadata": "",
         "name": "pause2.png",
         "smoothed": true,
         "userAdded": false
@@ -300,6 +324,7 @@
         "alwaysLoaded": false,
         "file": "../pause3.png",
         "kind": "image",
+        "metadata": "",
         "name": "pause3.png",
         "smoothed": true,
         "userAdded": false
@@ -308,6 +333,7 @@
         "alwaysLoaded": false,
         "file": "../Nothing.png",
         "kind": "image",
+        "metadata": "",
         "name": "Nothing.png",
         "smoothed": true,
         "userAdded": false
@@ -316,6 +342,7 @@
         "alwaysLoaded": false,
         "file": "../PlayAgainButton.png",
         "kind": "image",
+        "metadata": "",
         "name": "PlayAgainButton.png",
         "smoothed": true,
         "userAdded": false
@@ -324,6 +351,7 @@
         "alwaysLoaded": false,
         "file": "../BlackBackground.png",
         "kind": "image",
+        "metadata": "",
         "name": "BlackBackground.png",
         "smoothed": true,
         "userAdded": false
@@ -332,6 +360,7 @@
         "alwaysLoaded": false,
         "file": "../Projectile2.png",
         "kind": "image",
+        "metadata": "",
         "name": "Projectile2.png",
         "smoothed": true,
         "userAdded": false
@@ -340,6 +369,7 @@
         "alwaysLoaded": false,
         "file": "../Player3.png",
         "kind": "image",
+        "metadata": "",
         "name": "Player3.png",
         "smoothed": true,
         "userAdded": true
@@ -348,6 +378,7 @@
         "alwaysLoaded": false,
         "file": "../Projectile3.png",
         "kind": "image",
+        "metadata": "",
         "name": "Projectile3.png",
         "smoothed": true,
         "userAdded": false
@@ -356,6 +387,7 @@
         "alwaysLoaded": false,
         "file": "../Player4.png",
         "kind": "image",
+        "metadata": "",
         "name": "Player4.png",
         "smoothed": true,
         "userAdded": true
@@ -364,6 +396,7 @@
         "alwaysLoaded": false,
         "file": "../ShopButton.png",
         "kind": "image",
+        "metadata": "",
         "name": "ShopButton.png",
         "smoothed": true,
         "userAdded": false
@@ -372,6 +405,7 @@
         "alwaysLoaded": false,
         "file": "../png/Objects/Crate.png",
         "kind": "image",
+        "metadata": "",
         "name": "Crate.png",
         "smoothed": true,
         "userAdded": true
@@ -380,6 +414,7 @@
         "alwaysLoaded": false,
         "file": "../Player5.png",
         "kind": "image",
+        "metadata": "",
         "name": "Player5.png",
         "smoothed": true,
         "userAdded": true
@@ -388,6 +423,7 @@
         "alwaysLoaded": false,
         "file": "../KeyboardKeys/a.png",
         "kind": "image",
+        "metadata": "",
         "name": "a.png",
         "smoothed": true,
         "userAdded": false
@@ -396,6 +432,7 @@
         "alwaysLoaded": false,
         "file": "../BlackBackground2.png",
         "kind": "image",
+        "metadata": "",
         "name": "BlackBackground2.png",
         "smoothed": true,
         "userAdded": false
@@ -404,6 +441,7 @@
         "alwaysLoaded": false,
         "file": "../coin.png",
         "kind": "image",
+        "metadata": "",
         "name": "coin.png",
         "smoothed": true,
         "userAdded": false
@@ -412,6 +450,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA1.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA1.png",
         "smoothed": true,
         "userAdded": false
@@ -420,6 +459,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA2.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA2.png",
         "smoothed": true,
         "userAdded": false
@@ -428,6 +468,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA3.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA3.png",
         "smoothed": true,
         "userAdded": false
@@ -436,6 +477,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA4.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA4.png",
         "smoothed": true,
         "userAdded": false
@@ -444,6 +486,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA5.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA5.png",
         "smoothed": true,
         "userAdded": false
@@ -452,6 +495,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA6.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA6.png",
         "smoothed": true,
         "userAdded": false
@@ -460,6 +504,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA7.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA7.png",
         "smoothed": true,
         "userAdded": false
@@ -468,6 +513,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA8.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA8.png",
         "smoothed": true,
         "userAdded": false
@@ -476,6 +522,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA9.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA9.png",
         "smoothed": true,
         "userAdded": false
@@ -484,6 +531,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA10.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA10.png",
         "smoothed": true,
         "userAdded": false
@@ -492,6 +540,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA11.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA11.png",
         "smoothed": true,
         "userAdded": true
@@ -500,6 +549,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA12.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA12.png",
         "smoothed": true,
         "userAdded": true
@@ -508,6 +558,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA13.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA13.png",
         "smoothed": true,
         "userAdded": false
@@ -516,6 +567,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA14.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA14.png",
         "smoothed": true,
         "userAdded": true
@@ -524,6 +576,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA15.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA15.png",
         "smoothed": true,
         "userAdded": true
@@ -532,6 +585,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA16.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA16.png",
         "smoothed": true,
         "userAdded": true
@@ -540,6 +594,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA17.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA17.png",
         "smoothed": true,
         "userAdded": true
@@ -548,6 +603,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA18.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA18.png",
         "smoothed": true,
         "userAdded": true
@@ -556,6 +612,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA19.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA19.png",
         "smoothed": true,
         "userAdded": true
@@ -564,6 +621,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA20.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA20.png",
         "smoothed": true,
         "userAdded": true
@@ -572,6 +630,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA21.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA21.png",
         "smoothed": true,
         "userAdded": true
@@ -580,6 +639,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA22.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA22.png",
         "smoothed": true,
         "userAdded": true
@@ -588,6 +648,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA23.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA23.png",
         "smoothed": true,
         "userAdded": true
@@ -596,6 +657,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA24.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA24.png",
         "smoothed": true,
         "userAdded": true
@@ -604,6 +666,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA25.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA25.png",
         "smoothed": true,
         "userAdded": true
@@ -612,6 +675,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA26.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA26.png",
         "smoothed": true,
         "userAdded": true
@@ -620,6 +684,7 @@
         "alwaysLoaded": false,
         "file": "../RGBKeys/A/RGBKeyA27.png",
         "kind": "image",
+        "metadata": "",
         "name": "RGBKeyA27.png",
         "smoothed": true,
         "userAdded": true
@@ -628,6 +693,7 @@
         "alwaysLoaded": false,
         "file": "../SkinsSection.png",
         "kind": "image",
+        "metadata": "",
         "name": "SkinsSection.png",
         "smoothed": true,
         "userAdded": false
@@ -636,6 +702,7 @@
         "alwaysLoaded": false,
         "file": "../BackSection.png",
         "kind": "image",
+        "metadata": "",
         "name": "BackSection.png",
         "smoothed": true,
         "userAdded": false
@@ -644,6 +711,7 @@
         "alwaysLoaded": false,
         "file": "../SettingsSection.png",
         "kind": "image",
+        "metadata": "",
         "name": "SettingsSection.png",
         "smoothed": true,
         "userAdded": false
@@ -652,6 +720,7 @@
         "alwaysLoaded": false,
         "file": "../CreditsSection.png",
         "kind": "image",
+        "metadata": "",
         "name": "CreditsSection.png",
         "smoothed": true,
         "userAdded": false
@@ -660,6 +729,7 @@
         "alwaysLoaded": false,
         "file": "../TapToHold.png",
         "kind": "image",
+        "metadata": "",
         "name": "TapToHold.png",
         "smoothed": true,
         "userAdded": false
@@ -668,6 +738,7 @@
         "alwaysLoaded": false,
         "file": "../HighScoreReset.png",
         "kind": "image",
+        "metadata": "",
         "name": "HighScoreReset.png",
         "smoothed": true,
         "userAdded": false
@@ -676,6 +747,7 @@
         "alwaysLoaded": false,
         "file": "../SettingsBack.png",
         "kind": "image",
+        "metadata": "",
         "name": "SettingsBack.png",
         "smoothed": true,
         "userAdded": false
@@ -684,6 +756,7 @@
         "alwaysLoaded": false,
         "file": "../StartButton3.png",
         "kind": "image",
+        "metadata": "",
         "name": "StartButton3.png",
         "smoothed": true,
         "userAdded": true
@@ -692,6 +765,7 @@
         "alwaysLoaded": false,
         "file": "../Start.png",
         "kind": "image",
+        "metadata": "",
         "name": "Start.png",
         "smoothed": true,
         "userAdded": true
@@ -700,6 +774,7 @@
         "alwaysLoaded": false,
         "file": "../StartLight.png",
         "kind": "image",
+        "metadata": "",
         "name": "StartLight.png",
         "smoothed": true,
         "userAdded": true
@@ -708,6 +783,7 @@
         "alwaysLoaded": false,
         "file": "../YesBox.png",
         "kind": "image",
+        "metadata": "",
         "name": "YesBox.png",
         "smoothed": true,
         "userAdded": false
@@ -716,6 +792,7 @@
         "alwaysLoaded": false,
         "file": "../NoBox.png",
         "kind": "image",
+        "metadata": "",
         "name": "NoBox.png",
         "smoothed": true,
         "userAdded": false
@@ -724,6 +801,7 @@
         "alwaysLoaded": false,
         "file": "../BuyButton.png",
         "kind": "image",
+        "metadata": "",
         "name": "BuyButton.png",
         "smoothed": true,
         "userAdded": false
@@ -732,6 +810,7 @@
         "alwaysLoaded": false,
         "file": "../EquipButton.png",
         "kind": "image",
+        "metadata": "",
         "name": "EquipButton.png",
         "smoothed": true,
         "userAdded": false
@@ -740,6 +819,7 @@
         "alwaysLoaded": false,
         "file": "../EquippedButton.png",
         "kind": "image",
+        "metadata": "",
         "name": "EquippedButton.png",
         "smoothed": true,
         "userAdded": false
@@ -748,6 +828,7 @@
         "alwaysLoaded": false,
         "file": "../SettingsIcon.png",
         "kind": "image",
+        "metadata": "",
         "name": "SettingsIcon.png",
         "smoothed": true,
         "userAdded": false
@@ -756,6 +837,7 @@
         "alwaysLoaded": false,
         "file": "../../Echoes Quest/Button.png",
         "kind": "image",
+        "metadata": "",
         "name": "Button.png",
         "smoothed": true,
         "userAdded": true
@@ -764,6 +846,7 @@
         "alwaysLoaded": false,
         "file": "../soundEnabled.png",
         "kind": "image",
+        "metadata": "",
         "name": "soundEnabled.png",
         "smoothed": true,
         "userAdded": false
@@ -772,6 +855,7 @@
         "alwaysLoaded": false,
         "file": "../soundDisabled.png",
         "kind": "image",
+        "metadata": "",
         "name": "soundDisabled.png",
         "smoothed": true,
         "userAdded": false
@@ -780,6 +864,7 @@
         "alwaysLoaded": false,
         "file": "../soundEnabledOff.png",
         "kind": "image",
+        "metadata": "",
         "name": "soundEnabledOff.png",
         "smoothed": true,
         "userAdded": false
@@ -788,6 +873,7 @@
         "alwaysLoaded": false,
         "file": "../soundEnabledOn.png",
         "kind": "image",
+        "metadata": "",
         "name": "soundEnabledOn.png",
         "smoothed": true,
         "userAdded": true
@@ -796,6 +882,7 @@
         "alwaysLoaded": false,
         "file": "../soundDisabledOff.png",
         "kind": "image",
+        "metadata": "",
         "name": "soundDisabledOff.png",
         "smoothed": true,
         "userAdded": false
@@ -804,6 +891,7 @@
         "alwaysLoaded": false,
         "file": "../soundDisabledOn.png",
         "kind": "image",
+        "metadata": "",
         "name": "soundDisabledOn.png",
         "smoothed": true,
         "userAdded": true
@@ -812,6 +900,7 @@
         "alwaysLoaded": false,
         "file": "../SoundIcon.png",
         "kind": "image",
+        "metadata": "",
         "name": "SoundIcon.png",
         "smoothed": true,
         "userAdded": true
@@ -820,6 +909,7 @@
         "alwaysLoaded": false,
         "file": "../NoSoundIcon.png",
         "kind": "image",
+        "metadata": "",
         "name": "NoSoundIcon.png",
         "smoothed": true,
         "userAdded": false
@@ -828,6 +918,7 @@
         "alwaysLoaded": false,
         "file": "../JakLogo.png",
         "kind": "image",
+        "metadata": "",
         "name": "JakLogo.png",
         "smoothed": true,
         "userAdded": false
@@ -836,6 +927,7 @@
         "alwaysLoaded": false,
         "file": "../Rook.png",
         "kind": "image",
+        "metadata": "",
         "name": "Rook.png",
         "smoothed": true,
         "userAdded": false
@@ -844,6 +936,7 @@
         "alwaysLoaded": false,
         "file": "../slimeBlock.png",
         "kind": "image",
+        "metadata": "",
         "name": "slimeBlock.png",
         "smoothed": true,
         "userAdded": false
@@ -852,6 +945,7 @@
         "alwaysLoaded": false,
         "file": "../slimeBlockHit.png",
         "kind": "image",
+        "metadata": "",
         "name": "slimeBlockHit.png",
         "smoothed": true,
         "userAdded": false
@@ -860,6 +954,7 @@
         "alwaysLoaded": false,
         "file": "../bot(1).png",
         "kind": "image",
+        "metadata": "",
         "name": "bot(1).png",
         "smoothed": true,
         "userAdded": false
@@ -868,6 +963,7 @@
         "alwaysLoaded": false,
         "file": "../bot(2).png",
         "kind": "image",
+        "metadata": "",
         "name": "bot(2).png",
         "smoothed": true,
         "userAdded": false
@@ -876,6 +972,7 @@
         "alwaysLoaded": false,
         "file": "../../../Downloads/robot-pack/PNG/Side view/robot_blueDrive1.png",
         "kind": "image",
+        "metadata": "",
         "name": "robot_blueDrive1.png",
         "smoothed": true,
         "userAdded": false
@@ -884,6 +981,7 @@
         "alwaysLoaded": false,
         "file": "../../../Downloads/robot-pack/PNG/Side view/robot_blueDrive2.png",
         "kind": "image",
+        "metadata": "",
         "name": "robot_blueDrive2.png",
         "smoothed": true,
         "userAdded": false
@@ -892,6 +990,7 @@
         "alwaysLoaded": false,
         "file": "../../../Downloads/spaceshooter/PNG/Damage/playerShip1_damage1.png",
         "kind": "image",
+        "metadata": "",
         "name": "playerShip1_damage1.png",
         "smoothed": true,
         "userAdded": false
@@ -900,6 +999,7 @@
         "alwaysLoaded": false,
         "file": "../../../Downloads/spaceshooter/PNG/Damage/playerShip1_damage2.png",
         "kind": "image",
+        "metadata": "",
         "name": "playerShip1_damage2.png",
         "smoothed": true,
         "userAdded": false
@@ -908,6 +1008,7 @@
         "alwaysLoaded": false,
         "file": "../../../Downloads/spaceshooter/PNG/Damage/playerShip1_damage3.png",
         "kind": "image",
+        "metadata": "",
         "name": "playerShip1_damage3.png",
         "smoothed": true,
         "userAdded": false
@@ -916,6 +1017,7 @@
         "alwaysLoaded": false,
         "file": "../../../Downloads/spaceshooter/PNG/Damage/playerShip2_damage1.png",
         "kind": "image",
+        "metadata": "",
         "name": "playerShip2_damage1.png",
         "smoothed": true,
         "userAdded": true
@@ -924,6 +1026,7 @@
         "alwaysLoaded": false,
         "file": "../../../Downloads/spaceshooter/PNG/Damage/playerShip2_damage2.png",
         "kind": "image",
+        "metadata": "",
         "name": "playerShip2_damage2.png",
         "smoothed": true,
         "userAdded": false
@@ -932,6 +1035,7 @@
         "alwaysLoaded": false,
         "file": "../../../Downloads/spaceshooter/PNG/Damage/playerShip2_damage3.png",
         "kind": "image",
+        "metadata": "",
         "name": "playerShip2_damage3.png",
         "smoothed": true,
         "userAdded": false
@@ -940,6 +1044,7 @@
         "alwaysLoaded": false,
         "file": "../../../Downloads/spaceshooter/PNG/Damage/playerShip3_damage1.png",
         "kind": "image",
+        "metadata": "",
         "name": "playerShip3_damage1.png",
         "smoothed": true,
         "userAdded": false
@@ -948,6 +1053,7 @@
         "alwaysLoaded": false,
         "file": "../../../Downloads/spaceshooter/PNG/Damage/playerShip3_damage2.png",
         "kind": "image",
+        "metadata": "",
         "name": "playerShip3_damage2.png",
         "smoothed": true,
         "userAdded": true
@@ -956,6 +1062,7 @@
         "alwaysLoaded": false,
         "file": "../../../Downloads/spaceshooter/PNG/Damage/playerShip3_damage3.png",
         "kind": "image",
+        "metadata": "",
         "name": "playerShip3_damage3.png",
         "smoothed": true,
         "userAdded": false
@@ -964,6 +1071,7 @@
         "alwaysLoaded": false,
         "file": "../right_robot_blueDrive1.png",
         "kind": "image",
+        "metadata": "",
         "name": "right_robot_blueDrive1.png",
         "smoothed": true,
         "userAdded": true
@@ -972,6 +1080,7 @@
         "alwaysLoaded": false,
         "file": "../right_robot_blueDrive2.png",
         "kind": "image",
+        "metadata": "",
         "name": "right_robot_blueDrive2.png",
         "smoothed": true,
         "userAdded": true
@@ -980,6 +1089,7 @@
         "alwaysLoaded": false,
         "file": "../penguinSkin.png",
         "kind": "image",
+        "metadata": "",
         "name": "penguinSkin.png",
         "smoothed": true,
         "userAdded": false
@@ -988,6 +1098,7 @@
         "alwaysLoaded": false,
         "file": "../Dice/dieWhite5.png",
         "kind": "image",
+        "metadata": "",
         "name": "dieWhite5.png",
         "smoothed": true,
         "userAdded": false
@@ -996,6 +1107,7 @@
         "alwaysLoaded": false,
         "file": "../Dice/Dice(1).png",
         "kind": "image",
+        "metadata": "",
         "name": "Dice(1).png",
         "smoothed": true,
         "userAdded": false
@@ -1004,6 +1116,7 @@
         "alwaysLoaded": false,
         "file": "../Dice/Dice2(1).png",
         "kind": "image",
+        "metadata": "",
         "name": "Dice2(1).png",
         "smoothed": true,
         "userAdded": false
@@ -1012,6 +1125,7 @@
         "alwaysLoaded": false,
         "file": "../Dice/Dice(5).png",
         "kind": "image",
+        "metadata": "",
         "name": "Dice(5).png",
         "smoothed": true,
         "userAdded": false
@@ -1020,6 +1134,7 @@
         "alwaysLoaded": false,
         "file": "../Dice/Dice(2).png",
         "kind": "image",
+        "metadata": "",
         "name": "Dice(2).png",
         "smoothed": true,
         "userAdded": false
@@ -1028,6 +1143,7 @@
         "alwaysLoaded": false,
         "file": "../Dice/Dice(3).png",
         "kind": "image",
+        "metadata": "",
         "name": "Dice(3).png",
         "smoothed": true,
         "userAdded": true
@@ -1036,6 +1152,7 @@
         "alwaysLoaded": false,
         "file": "../Dice/Dice(4).png",
         "kind": "image",
+        "metadata": "",
         "name": "Dice(4).png",
         "smoothed": true,
         "userAdded": true
@@ -1044,6 +1161,7 @@
         "alwaysLoaded": false,
         "file": "../Dice/Dice(6).png",
         "kind": "image",
+        "metadata": "",
         "name": "Dice(6).png",
         "smoothed": true,
         "userAdded": false
@@ -1052,6 +1170,7 @@
         "alwaysLoaded": false,
         "file": "../SkinsButton.png",
         "kind": "image",
+        "metadata": "",
         "name": "SkinsButton.png",
         "smoothed": true,
         "userAdded": false
@@ -1060,6 +1179,7 @@
         "alwaysLoaded": false,
         "file": "../FreeCoinsButton.png",
         "kind": "image",
+        "metadata": "",
         "name": "FreeCoinsButton.png",
         "smoothed": true,
         "userAdded": false
@@ -1068,6 +1188,7 @@
         "alwaysLoaded": false,
         "file": "../RomCartridge.png",
         "kind": "image",
+        "metadata": "",
         "name": "RomCartridge.png",
         "smoothed": true,
         "userAdded": false
@@ -1076,6 +1197,7 @@
         "alwaysLoaded": false,
         "file": "../Edge.png",
         "kind": "image",
+        "metadata": "",
         "name": "Edge.png",
         "smoothed": true,
         "userAdded": false
@@ -1084,6 +1206,7 @@
         "alwaysLoaded": false,
         "file": "../whiteColor.png",
         "kind": "image",
+        "metadata": "",
         "name": "whiteColor.png",
         "smoothed": true,
         "userAdded": true
@@ -1092,6 +1215,7 @@
         "alwaysLoaded": false,
         "file": "../Turbo.png",
         "kind": "image",
+        "metadata": "",
         "name": "Turbo.png",
         "smoothed": true,
         "userAdded": false
@@ -1100,6 +1224,7 @@
         "alwaysLoaded": false,
         "file": "../slide.png",
         "kind": "image",
+        "metadata": "",
         "name": "slide.png",
         "smoothed": true,
         "userAdded": false
@@ -1108,6 +1233,7 @@
         "alwaysLoaded": false,
         "file": "../TurboOff.png",
         "kind": "image",
+        "metadata": "",
         "name": "TurboOff.png",
         "smoothed": true,
         "userAdded": false
@@ -1116,6 +1242,7 @@
         "alwaysLoaded": false,
         "file": "../bot/bot1.png",
         "kind": "image",
+        "metadata": "",
         "name": "bot1.png",
         "smoothed": true,
         "userAdded": false
@@ -1124,6 +1251,7 @@
         "alwaysLoaded": false,
         "file": "../bot/bot2.png",
         "kind": "image",
+        "metadata": "",
         "name": "bot2.png",
         "smoothed": true,
         "userAdded": true
@@ -1132,6 +1260,7 @@
         "alwaysLoaded": false,
         "file": "../cookiesWarning.png",
         "kind": "image",
+        "metadata": "",
         "name": "cookiesWarning.png",
         "smoothed": true,
         "userAdded": false
@@ -1140,6 +1269,7 @@
         "alwaysLoaded": false,
         "file": "../GlowingJakLogo.png",
         "kind": "image",
+        "metadata": "",
         "name": "GlowingJakLogo.png",
         "smoothed": true,
         "userAdded": false
@@ -1148,6 +1278,7 @@
         "alwaysLoaded": false,
         "file": "../TurboRightOff.png",
         "kind": "image",
+        "metadata": "",
         "name": "TurboRightOff.png",
         "smoothed": true,
         "userAdded": true
@@ -1156,6 +1287,7 @@
         "alwaysLoaded": false,
         "file": "../TurboRightOn.png",
         "kind": "image",
+        "metadata": "",
         "name": "TurboRightOn.png",
         "smoothed": true,
         "userAdded": true
@@ -1164,6 +1296,7 @@
         "alwaysLoaded": false,
         "file": "../TurboLeftOff.png",
         "kind": "image",
+        "metadata": "",
         "name": "TurboLeftOff.png",
         "smoothed": true,
         "userAdded": true
@@ -1172,6 +1305,7 @@
         "alwaysLoaded": false,
         "file": "../TurboLeftOn.png",
         "kind": "image",
+        "metadata": "",
         "name": "TurboLeftOn.png",
         "smoothed": true,
         "userAdded": true
@@ -1180,6 +1314,7 @@
         "alwaysLoaded": false,
         "file": "../largeTextbox.png",
         "kind": "image",
+        "metadata": "",
         "name": "largeTextbox.png",
         "smoothed": true,
         "userAdded": false
@@ -1188,6 +1323,7 @@
         "alwaysLoaded": false,
         "file": "../icon2.png",
         "kind": "image",
+        "metadata": "",
         "name": "icon2.png",
         "smoothed": true,
         "userAdded": false
@@ -1196,6 +1332,7 @@
         "alwaysLoaded": false,
         "file": "../backgrounds/muffin-dot-dat.png",
         "kind": "image",
+        "metadata": "",
         "name": "muffin-dot-dat.png",
         "smoothed": true,
         "userAdded": false
@@ -1204,6 +1341,7 @@
         "alwaysLoaded": false,
         "file": "../backgrounds/sunset.png",
         "kind": "image",
+        "metadata": "",
         "name": "sunset.png",
         "smoothed": true,
         "userAdded": true
@@ -1212,6 +1350,7 @@
         "alwaysLoaded": false,
         "file": "../backgrounds/digital.png",
         "kind": "image",
+        "metadata": "",
         "name": "digital.png",
         "smoothed": true,
         "userAdded": false
@@ -1220,6 +1359,7 @@
         "alwaysLoaded": false,
         "file": "../backgrounds/fragile-soft-machine.png",
         "kind": "image",
+        "metadata": "",
         "name": "fragile-soft-machine.png",
         "smoothed": true,
         "userAdded": false
@@ -1228,6 +1368,7 @@
         "alwaysLoaded": false,
         "file": "../backgrounds/Ruined City Background Preview.png",
         "kind": "image",
+        "metadata": "",
         "name": "Ruined City Background Preview.png",
         "smoothed": true,
         "userAdded": false
@@ -7505,7 +7646,7 @@
       "oglZNear": 1,
       "r": 255,
       "standardSortMethod": true,
-      "stopSoundsOnStartup": true,
+      "stopSoundsOnStartup": false,
       "title": "",
       "v": 255,
       "uiSettings": {
@@ -7593,7 +7734,7 @@
           "locked": false,
           "name": "GameIntro",
           "width": 0,
-          "x": 270,
+          "x": 280,
           "y": 450,
           "zOrder": 2,
           "numberProperties": [],
@@ -7728,7 +7869,7 @@
           "locked": false,
           "name": "Instructions",
           "width": 0,
-          "x": 120,
+          "x": 150,
           "y": 600,
           "zOrder": 17,
           "numberProperties": [],
@@ -21060,7 +21201,7 @@
           "underlined": false,
           "variables": [],
           "behaviors": [],
-          "string": "Crate Skin - gameart2d.com\n\nStandard Skin - Jak\n\nEvery Other Skin - Kenney\n\nbackground - TokyoGeisha at opengameart.org\n\nPretty Much Everything Else - Jak\n",
+          "string": "Crate Skin - gameart2d.com\n\nStandard Skin - Jak\n\nEvery Other Skin - Kenney\n\nBackground - TokyoGeisha at opengameart.org\n\nPretty Much Everything Else - Jak\n",
           "font": "arial",
           "characterSize": 45,
           "color": {
@@ -26655,6 +26796,7 @@
     }
   ],
   "externalEvents": [],
+  "eventsFunctionsExtensions": [],
   "externalLayouts": [],
   "externalSourceFiles": []
 }

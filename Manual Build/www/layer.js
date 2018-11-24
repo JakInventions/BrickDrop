@@ -7,11 +7,12 @@
 /**
  * Represents a layer of a scene, used to display objects.
  *
- * *Not yet implemented:* Viewports and support for multiple cameras
+ * Viewports and multiple cameras are not supported.
  *
  * @class Layer
- * @namespace gdjs
- * @constructor
+ * @param {Object} layerData The data used to initialize the layer
+ * @param {gdjs.RuntimeScene} runtimeScene The scene in which the layer is used
+ * @memberof gdjs
  */
 gdjs.Layer = function(layerData, runtimeScene)
 {
@@ -37,7 +38,6 @@ gdjs.Layer.prototype.getRenderer = function() {
 
 /**
  * Get the name of the layer
- * @method getName
  * @return {String} The name of the layer
  */
 gdjs.Layer.prototype.getName = function() {
@@ -47,7 +47,6 @@ gdjs.Layer.prototype.getName = function() {
 /**
  * Change the camera center X position.
  *
- * @method getCameraX
  * @param cameraId The camera number. Currently ignored.
  * @return The x position of the camera
  */
@@ -58,7 +57,6 @@ gdjs.Layer.prototype.getCameraX = function(cameraId) {
 /**
  * Change the camera center Y position.
  *
- * @method getCameraY
  * @param cameraId The camera number. Currently ignored.
  * @return The y position of the camera
  */
@@ -69,9 +67,8 @@ gdjs.Layer.prototype.getCameraY = function(cameraId) {
 /**
  * Set the camera center X position.
  *
- * @method setCameraX
- * @param x {Number} The new x position
- * @param cameraId The camera number. Currently ignored.
+ * @param {number} x The new x position
+ * @param {number} cameraId The camera number. Currently ignored.
  */
 gdjs.Layer.prototype.setCameraX = function(x, cameraId) {
 	this._cameraX = x;
@@ -81,9 +78,8 @@ gdjs.Layer.prototype.setCameraX = function(x, cameraId) {
 /**
  * Set the camera center Y position.
  *
- * @method setCameraY
- * @param y {Number} The new y position
- * @param cameraId The camera number. Currently ignored.
+ * @param {number} y The new y position
+ * @param {number} cameraId The camera number. Currently ignored.
  */
 gdjs.Layer.prototype.setCameraY = function(y, cameraId) {
 	this._cameraY = y;
@@ -98,6 +94,10 @@ gdjs.Layer.prototype.getCameraHeight = function(cameraId) {
 	return (+this._height)*1/this._zoomFactor;
 };
 
+/**
+ * Show (or hide) the layer.
+ * @param {boolean} enable true to show the layer, false to hide it.
+ */
 gdjs.Layer.prototype.show = function(enable) {
 	this._hidden = !enable;
     this._renderer.updateVisibility(enable);
@@ -106,7 +106,6 @@ gdjs.Layer.prototype.show = function(enable) {
 /**
  * Check if the layer is visible.
  *
- * @method isVisible
  * @return true if the layer is visible.
  */
 gdjs.Layer.prototype.isVisible = function() {
@@ -116,9 +115,8 @@ gdjs.Layer.prototype.isVisible = function() {
 /**
  * Set the zoom of a camera.
  *
- * @method setCameraZoom
- * @param The new zoom. Must be superior to 0. 1 is the default zoom.
- * @param cameraId The camera number. Currently ignored.
+ * @param {number} newZoom The new zoom. Must be superior to 0. 1 is the default zoom.
+ * @param {number} cameraId The camera number. Currently ignored.
  */
 gdjs.Layer.prototype.setCameraZoom = function(newZoom, cameraId) {
 	this._zoomFactor = newZoom;
@@ -128,9 +126,8 @@ gdjs.Layer.prototype.setCameraZoom = function(newZoom, cameraId) {
 /**
  * Get the zoom of a camera.
  *
- * @method getZoom
- * @param cameraId The camera number. Currently ignored.
- * @return The zoom.
+ * @param {number} cameraId The camera number. Currently ignored.
+ * @return {number} The zoom.
  */
 gdjs.Layer.prototype.getCameraZoom = function(cameraId) {
 	return this._zoomFactor;
@@ -139,9 +136,8 @@ gdjs.Layer.prototype.getCameraZoom = function(cameraId) {
 /**
  * Get the rotation of the camera, expressed in degrees.
  *
- * @method getCameraRotation
- * @param cameraId The camera number. Currently ignored.
- * @return The rotation, in degrees.
+ * @param {number} cameraId The camera number. Currently ignored.
+ * @return {number} The rotation, in degrees.
  */
 gdjs.Layer.prototype.getCameraRotation = function(cameraId) {
 	return this._cameraRotation;
@@ -151,9 +147,8 @@ gdjs.Layer.prototype.getCameraRotation = function(cameraId) {
  * Set the rotation of the camera, expressed in degrees.
  * The rotation is made around the camera center.
  *
- * @method setCameraRotation
- * @param rotation {Number} The new rotation, in degrees.
- * @param cameraId The camera number. Currently ignored.
+ * @param {number} rotation The new rotation, in degrees.
+ * @param {number} cameraId The camera number. Currently ignored.
  */
 gdjs.Layer.prototype.setCameraRotation = function(rotation, cameraId) {
 	this._cameraRotation = rotation;
@@ -166,10 +161,9 @@ gdjs.Layer.prototype.setCameraRotation = function(rotation, cameraId) {
  *
  * TODO: Update this method to store the result in a static array
  *
- * @method convertCoords
- * @param x {Number} The x position, in canvas coordinates.
- * @param y {Number} The y position, in canvas coordinates.
- * @param cameraId The camera number. Currently ignored.
+ * @param {number} x The x position, in canvas coordinates.
+ * @param {number} y The y position, in canvas coordinates.
+ * @param {number} cameraId The camera number. Currently ignored.
  */
 gdjs.Layer.prototype.convertCoords = function(x, y, cameraId) {
 	x -= this._width/2;
@@ -177,23 +171,31 @@ gdjs.Layer.prototype.convertCoords = function(x, y, cameraId) {
 	x /= Math.abs(this._zoomFactor);
 	y /= Math.abs(this._zoomFactor);
 
+	// Only compute angle and cos/sin once (allow heavy optimization from JS engines).
+	var angleInRadians = this._cameraRotation/180*Math.PI;
 	var tmp = x;
-	x = Math.cos(this._cameraRotation/180*3.14159)*x - Math.sin(this._cameraRotation/180*3.14159)*y;
-	y = Math.sin(this._cameraRotation/180*3.14159)*tmp + Math.cos(this._cameraRotation/180*3.14159)*y;
+	var cosValue = Math.cos(angleInRadians);
+	var sinValue = Math.sin(angleInRadians);
+	x = cosValue*x - sinValue*y;
+	y = sinValue*tmp + cosValue*y;
 
 	return [x + this.getCameraX(cameraId), y + this.getCameraY(cameraId)];
 };
 
 gdjs.Layer.prototype.convertInverseCoords = function(x, y, cameraId) {
-   x -= this.getCameraX(cameraId);
-   y -= this.getCameraY(cameraId);
+	x -= this.getCameraX(cameraId);
+	y -= this.getCameraY(cameraId);
 
+	// Only compute angle and cos/sin once (allow heavy optimization from JS engines).
+	var angleInRadians = this._cameraRotation/180*Math.PI;
 	var tmp = x;
-	x = Math.cos(-this._cameraRotation/180*3.14159)*x - Math.sin(-this._cameraRotation/180*3.14159)*y;
-	y = Math.sin(-this._cameraRotation/180*3.14159)*tmp + Math.cos(-this._cameraRotation/180*3.14159)*y;
+	var cosValue = Math.cos(-angleInRadians);
+	var sinValue = Math.sin(-angleInRadians);
+	x = cosValue*x - sinValue*y;
+	y = sinValue*tmp + cosValue*y;
 
-   x *= Math.abs(this._zoomFactor);
-   y *= Math.abs(this._zoomFactor);
+	x *= Math.abs(this._zoomFactor);
+	y *= Math.abs(this._zoomFactor);
 
 	return [x + this._width/2, y + this._height/2];
 };
@@ -226,8 +228,7 @@ gdjs.Layer.prototype.setEffectsDefaultParameters = function() {
 /**
  * Set the time scale for the objects on the layer:
  * time will be slower if time scale is < 1, faster if > 1.
- * @method setTimeScale
- * @param timeScale {Number} The new time scale (must be positive).
+ * @param {number} timeScale The new time scale (must be positive).
  */
 gdjs.Layer.prototype.setTimeScale = function(timeScale) {
 	if ( timeScale >= 0 ) this._timeScale = timeScale;
@@ -235,7 +236,6 @@ gdjs.Layer.prototype.setTimeScale = function(timeScale) {
 
 /**
  * Get the time scale for the objects on the layer.
- * @method getTimeScale
  */
 gdjs.Layer.prototype.getTimeScale = function() {
 	return this._timeScale;
@@ -244,7 +244,6 @@ gdjs.Layer.prototype.getTimeScale = function() {
 /**
  * Return the time elapsed since the last frame,
  * in milliseconds, for objects on the layer.
- * @method getElapsedTime
  */
 gdjs.Layer.prototype.getElapsedTime = function(runtimeScene) {
    return runtimeScene.getTimeManager().getElapsedTime() * this._timeScale;

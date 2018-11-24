@@ -13,7 +13,7 @@ gdjs.CreditsCode.condition0IsTrue_0 = {val:false};
 gdjs.CreditsCode.condition1IsTrue_0 = {val:false};
 
 
-gdjs.CreditsCode.mapOfGDgdjs_46CreditsCode_46GDBackObjects1Objects = Hashtable.newFrom({"Back": gdjs.CreditsCode.GDBackObjects1});gdjs.CreditsCode.eventsList0x8c60f8 = function(runtimeScene, context) {
+gdjs.CreditsCode.mapOfGDgdjs_46CreditsCode_46GDBackObjects1Objects = Hashtable.newFrom({"Back": gdjs.CreditsCode.GDBackObjects1});gdjs.CreditsCode.eventsList0x749c00 = function(runtimeScene) {
 
 {
 
@@ -28,8 +28,8 @@ gdjs.CreditsCode.condition0IsTrue_0.val = gdjs.evtTools.input.popStartedTouch(ru
 }
 
 
-}; //End of gdjs.CreditsCode.eventsList0x8c60f8
-gdjs.CreditsCode.eventsList0xac5d0 = function(runtimeScene, context) {
+}; //End of gdjs.CreditsCode.eventsList0x749c00
+gdjs.CreditsCode.eventsList0xb0a98 = function(runtimeScene) {
 
 {
 
@@ -41,7 +41,7 @@ gdjs.CreditsCode.condition0IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gdj
 }if (gdjs.CreditsCode.condition0IsTrue_0.val) {
 
 { //Subevents
-gdjs.CreditsCode.eventsList0x8c60f8(runtimeScene, context);} //End of subevents
+gdjs.CreditsCode.eventsList0x749c00(runtimeScene);} //End of subevents
 }
 
 }
@@ -56,11 +56,11 @@ gdjs.CreditsCode.eventsList0x8c60f8(runtimeScene, context);} //End of subevents
 }
 
 
-}; //End of gdjs.CreditsCode.eventsList0xac5d0
+}; //End of gdjs.CreditsCode.eventsList0xb0a98
 
 
-gdjs.CreditsCode.func = function(runtimeScene, context) {
-context.startNewFrame();
+gdjs.CreditsCode.func = function(runtimeScene) {
+runtimeScene.getOnceTriggers().startNewFrame();
 gdjs.CreditsCode.GDBackgroundObjects1.length = 0;
 gdjs.CreditsCode.GDBackgroundObjects2.length = 0;
 gdjs.CreditsCode.GDBackObjects1.length = 0;
@@ -70,6 +70,7 @@ gdjs.CreditsCode.GDTitleObjects2.length = 0;
 gdjs.CreditsCode.GDActualCreditsObjects1.length = 0;
 gdjs.CreditsCode.GDActualCreditsObjects2.length = 0;
 
-gdjs.CreditsCode.eventsList0xac5d0(runtimeScene, context);return;
+gdjs.CreditsCode.eventsList0xb0a98(runtimeScene);
+return;
 }
-gdjs['CreditsCode']= gdjs.CreditsCode;
+gdjs['CreditsCode'] = gdjs.CreditsCode;

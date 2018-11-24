@@ -8,10 +8,9 @@
  * VariablesContainer stores variables, usually for a a RuntimeGame, a RuntimeScene
  * or a RuntimeObject.
  *
- * @namespace gdjs
+ * @memberof gdjs
  * @class VariablesContainer
- * @constructor
- * @param initialVariablesData Optional object containing initial variables.
+ * @param {Object} initialVariablesData Optional object containing initial variables.
  */
 gdjs.VariablesContainer = function(initialVariablesData)
 {
@@ -23,14 +22,13 @@ gdjs.VariablesContainer = function(initialVariablesData)
 
 /**
  * Initialize variables from a container data.<br>
- * If keepOldVariables is set to false ( by default ), all already existing variables will be
+ * If `keepOldVariables` is set to false (by default), all already existing variables will be
  * erased, but the new variables will be accessible thanks to getFromIndex. <br>
- * if keepOldVariables is set to true, already existing variables won't be erased and will be
+ * if `keepOldVariables` is set to true, already existing variables won't be erased and will be
  * still accessible thanks to getFromIndex.
  *
- * @method initFrom
  * @param data The object containing the variables.
- * @param keepOldVariables {Boolean} If set to true, already existing variables won't be erased.
+ * @param {Boolean} keepOldVariables If set to true, already existing variables won't be erased.
  */
 gdjs.VariablesContainer.prototype.initFrom = function(data, keepOldVariables) {
     if ( keepOldVariables == undefined ) keepOldVariables = false;
@@ -79,19 +77,17 @@ gdjs.VariablesContainer.prototype.initFrom = function(data, keepOldVariables) {
 
 /**
  * Add a new variable.
- * @method add
- * @param name {String} Variable name
- * @param variable The variable to be added
+ * @param {string} name Variable name
+ * @param {gdjs.Variable} variable The variable to be added
  */
 gdjs.VariablesContainer.prototype.add = function(name, variable) {
 	this._variables.put(name, variable);
 };
 
 /**
- * Remove a variable.<br>
- * ( In fact, the variable is not really removed from the container to avoid creating garbage )
- * @method remove
- * @param name {String} Variable to be removed
+ * Remove a variable.
+ * (the variable is not really removed from the container to avoid creating garbage, but marked as undefined)
+ * @param {string} name Variable to be removed
  */
 gdjs.VariablesContainer.prototype.remove = function(name) {
 	if ( this._variables.containsKey(name) ) {
@@ -101,9 +97,8 @@ gdjs.VariablesContainer.prototype.remove = function(name) {
 
 /**
  * Get a variable.
- * @method get
- * @param name {String} The variable's name
- * @return The specified variable. If not found, an empty variable is added to the container.
+ * @param {string} name The variable's name
+ * @return {gdjs.Variable} The specified variable. If not found, an empty variable is added to the container.
  */
 gdjs.VariablesContainer.prototype.get = function(name) {
     var variable = null;
@@ -122,15 +117,13 @@ gdjs.VariablesContainer.prototype.get = function(name) {
 };
 
 /**
- * Get a variable using its index.<br>
- * The index of a variable is its index in the data passed to initFrom.<br>
+ * Get a variable using its index. If you're unsure about how to use this method, prefer to use `get`.
+ * The index of a variable is its index in the data passed to initFrom.
  *
- * This method is generally used by events generated code to increase lookup speed for variables.<br>
- * If you're unsure about how to use this method, prefer to use get.
+ * This method is generally used by events generated code to increase lookup speed for variables.
  *
- * @method getFromIndex
- * @param id {Number} The variable index
- * @return The specified variable. If not found, an empty variable is added to the container, but it
+ * @param {number} id The variable index
+ * @return {gdjs.Variable} The specified variable. If not found, an empty variable is added to the container, but it
  * should not happen.
  */
 gdjs.VariablesContainer.prototype.getFromIndex = function(id) {
@@ -148,10 +141,9 @@ gdjs.VariablesContainer.prototype.getFromIndex = function(id) {
 };
 
 /**
- * Check if a variable exists in the container
- * @method has
- * @param name {String} The variable's name
- * @return true if the variable exists.
+ * Check if a variable exists in the container.
+ * @param {string} name The variable's name
+ * @return {boolean} true if the variable exists.
  */
 gdjs.VariablesContainer.prototype.has = function(name) {
 	return this._variables.containsKey(name) && !this._variables.get(name).isUndefinedInContainer();
@@ -162,6 +154,7 @@ gdjs.VariablesContainer.prototype.has = function(name) {
  * "Bad" variable container, used by events when no other valid container can be found.
  * This container has no state and always returns the bad variable ( see gdjs.VariablesContainer.badVariable ).
  * @static
+ * @private
  */
 gdjs.VariablesContainer.badVariablesContainer = {
     has: function() {return false;},
@@ -176,6 +169,7 @@ gdjs.VariablesContainer.badVariablesContainer = {
  * "Bad" variable, used by events when no other valid variable can be found.
  * This variable has no state and always return 0 or the empty string.
  * @static
+ * @private
  */
 gdjs.VariablesContainer.badVariable = {
     getChild : function() { return gdjs.VariablesContainer.badVariable; },

@@ -9,7 +9,7 @@ gdjs.JISplashScreenCode.condition0IsTrue_0 = {val:false};
 gdjs.JISplashScreenCode.condition1IsTrue_0 = {val:false};
 
 
-gdjs.JISplashScreenCode.eventsList0xac5d0 = function(runtimeScene, context) {
+gdjs.JISplashScreenCode.eventsList0xb0a98 = function(runtimeScene) {
 
 {
 
@@ -681,16 +681,17 @@ gdjs.JISplashScreenCode.condition0IsTrue_0.val = gdjs.evtTools.runtimeScene.time
 }
 
 
-}; //End of gdjs.JISplashScreenCode.eventsList0xac5d0
+}; //End of gdjs.JISplashScreenCode.eventsList0xb0a98
 
 
-gdjs.JISplashScreenCode.func = function(runtimeScene, context) {
-context.startNewFrame();
+gdjs.JISplashScreenCode.func = function(runtimeScene) {
+runtimeScene.getOnceTriggers().startNewFrame();
 gdjs.JISplashScreenCode.GDBackgroundObjects1.length = 0;
 gdjs.JISplashScreenCode.GDBackgroundObjects2.length = 0;
 gdjs.JISplashScreenCode.GDJakLogoObjects1.length = 0;
 gdjs.JISplashScreenCode.GDJakLogoObjects2.length = 0;
 
-gdjs.JISplashScreenCode.eventsList0xac5d0(runtimeScene, context);return;
+gdjs.JISplashScreenCode.eventsList0xb0a98(runtimeScene);
+return;
 }
-gdjs['JISplashScreenCode']= gdjs.JISplashScreenCode;
+gdjs['JISplashScreenCode'] = gdjs.JISplashScreenCode;

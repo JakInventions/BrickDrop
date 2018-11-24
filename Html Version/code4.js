@@ -43,7 +43,7 @@ gdjs.SettingsCode.condition0IsTrue_0 = {val:false};
 gdjs.SettingsCode.condition1IsTrue_0 = {val:false};
 
 
-gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDSoundEnabledButtonObjects1Objects = Hashtable.newFrom({"SoundEnabledButton": gdjs.SettingsCode.GDSoundEnabledButtonObjects1});gdjs.SettingsCode.eventsList0x714960 = function(runtimeScene, context) {
+gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDSoundEnabledButtonObjects1Objects = Hashtable.newFrom({"SoundEnabledButton": gdjs.SettingsCode.GDSoundEnabledButtonObjects1});gdjs.SettingsCode.eventsList0x8066a0 = function(runtimeScene) {
 
 {
 
@@ -59,8 +59,8 @@ gdjs.SettingsCode.condition0IsTrue_0.val = gdjs.evtTools.input.popStartedTouch(r
 }
 
 
-}; //End of gdjs.SettingsCode.eventsList0x714960
-gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDSoundDisabledButtonObjects1Objects = Hashtable.newFrom({"SoundDisabledButton": gdjs.SettingsCode.GDSoundDisabledButtonObjects1});gdjs.SettingsCode.eventsList0x8c1060 = function(runtimeScene, context) {
+}; //End of gdjs.SettingsCode.eventsList0x8066a0
+gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDSoundDisabledButtonObjects1Objects = Hashtable.newFrom({"SoundDisabledButton": gdjs.SettingsCode.GDSoundDisabledButtonObjects1});gdjs.SettingsCode.eventsList0x806b00 = function(runtimeScene) {
 
 {
 
@@ -76,8 +76,8 @@ gdjs.SettingsCode.condition0IsTrue_0.val = gdjs.evtTools.input.popStartedTouch(r
 }
 
 
-}; //End of gdjs.SettingsCode.eventsList0x8c1060
-gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDEdgesEnabledButtonObjects1Objects = Hashtable.newFrom({"EdgesEnabledButton": gdjs.SettingsCode.GDEdgesEnabledButtonObjects1});gdjs.SettingsCode.eventsList0x8c1518 = function(runtimeScene, context) {
+}; //End of gdjs.SettingsCode.eventsList0x806b00
+gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDEdgesEnabledButtonObjects1Objects = Hashtable.newFrom({"EdgesEnabledButton": gdjs.SettingsCode.GDEdgesEnabledButtonObjects1});gdjs.SettingsCode.eventsList0x806fb8 = function(runtimeScene) {
 
 {
 
@@ -93,8 +93,8 @@ gdjs.SettingsCode.condition0IsTrue_0.val = gdjs.evtTools.input.popStartedTouch(r
 }
 
 
-}; //End of gdjs.SettingsCode.eventsList0x8c1518
-gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDEdgesDisabledButtonObjects1Objects = Hashtable.newFrom({"EdgesDisabledButton": gdjs.SettingsCode.GDEdgesDisabledButtonObjects1});gdjs.SettingsCode.eventsList0x8c19d0 = function(runtimeScene, context) {
+}; //End of gdjs.SettingsCode.eventsList0x806fb8
+gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDEdgesDisabledButtonObjects1Objects = Hashtable.newFrom({"EdgesDisabledButton": gdjs.SettingsCode.GDEdgesDisabledButtonObjects1});gdjs.SettingsCode.eventsList0x807470 = function(runtimeScene) {
 
 {
 
@@ -110,8 +110,8 @@ gdjs.SettingsCode.condition0IsTrue_0.val = gdjs.evtTools.input.popStartedTouch(r
 }
 
 
-}; //End of gdjs.SettingsCode.eventsList0x8c19d0
-gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDTurboRightButtonObjects1Objects = Hashtable.newFrom({"TurboRightButton": gdjs.SettingsCode.GDTurboRightButtonObjects1});gdjs.SettingsCode.eventsList0x8c1e88 = function(runtimeScene, context) {
+}; //End of gdjs.SettingsCode.eventsList0x807470
+gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDTurboRightButtonObjects1Objects = Hashtable.newFrom({"TurboRightButton": gdjs.SettingsCode.GDTurboRightButtonObjects1});gdjs.SettingsCode.eventsList0x807928 = function(runtimeScene) {
 
 {
 
@@ -127,8 +127,8 @@ gdjs.SettingsCode.condition0IsTrue_0.val = gdjs.evtTools.input.popStartedTouch(r
 }
 
 
-}; //End of gdjs.SettingsCode.eventsList0x8c1e88
-gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDTurboLeftButtonObjects1Objects = Hashtable.newFrom({"TurboLeftButton": gdjs.SettingsCode.GDTurboLeftButtonObjects1});gdjs.SettingsCode.eventsList0x8c2328 = function(runtimeScene, context) {
+}; //End of gdjs.SettingsCode.eventsList0x807928
+gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDTurboLeftButtonObjects1Objects = Hashtable.newFrom({"TurboLeftButton": gdjs.SettingsCode.GDTurboLeftButtonObjects1});gdjs.SettingsCode.eventsList0x807dc8 = function(runtimeScene) {
 
 {
 
@@ -144,8 +144,8 @@ gdjs.SettingsCode.condition0IsTrue_0.val = gdjs.evtTools.input.popStartedTouch(r
 }
 
 
-}; //End of gdjs.SettingsCode.eventsList0x8c2328
-gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDResetHighScoreObjects1Objects = Hashtable.newFrom({"ResetHighScore": gdjs.SettingsCode.GDResetHighScoreObjects1});gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDAreYouSureTextObjects1Objects = Hashtable.newFrom({"AreYouSureText": gdjs.SettingsCode.GDAreYouSureTextObjects1});gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDYesBoxObjects1Objects = Hashtable.newFrom({"YesBox": gdjs.SettingsCode.GDYesBoxObjects1});gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDNoBoxObjects1Objects = Hashtable.newFrom({"NoBox": gdjs.SettingsCode.GDNoBoxObjects1});gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDTextBoxObjects1Objects = Hashtable.newFrom({"TextBox": gdjs.SettingsCode.GDTextBoxObjects1});gdjs.SettingsCode.eventsList0x8c27b8 = function(runtimeScene, context) {
+}; //End of gdjs.SettingsCode.eventsList0x807dc8
+gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDResetHighScoreObjects1Objects = Hashtable.newFrom({"ResetHighScore": gdjs.SettingsCode.GDResetHighScoreObjects1});gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDAreYouSureTextObjects1Objects = Hashtable.newFrom({"AreYouSureText": gdjs.SettingsCode.GDAreYouSureTextObjects1});gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDYesBoxObjects1Objects = Hashtable.newFrom({"YesBox": gdjs.SettingsCode.GDYesBoxObjects1});gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDNoBoxObjects1Objects = Hashtable.newFrom({"NoBox": gdjs.SettingsCode.GDNoBoxObjects1});gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDTextBoxObjects1Objects = Hashtable.newFrom({"TextBox": gdjs.SettingsCode.GDTextBoxObjects1});gdjs.SettingsCode.eventsList0x808258 = function(runtimeScene) {
 
 {
 
@@ -162,10 +162,10 @@ gdjs.SettingsCode.GDTextBoxObjects1.length = 0;
 
 gdjs.SettingsCode.GDYesBoxObjects1.length = 0;
 
-{gdjs.evtTools.object.createObjectOnScene(runtimeScene, gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDAreYouSureTextObjects1Objects, 200, 500, "");
-}{gdjs.evtTools.object.createObjectOnScene(runtimeScene, gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDYesBoxObjects1Objects, 550, 800, "");
-}{gdjs.evtTools.object.createObjectOnScene(runtimeScene, gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDNoBoxObjects1Objects, 175, 800, "");
-}{gdjs.evtTools.object.createObjectOnScene(runtimeScene, gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDTextBoxObjects1Objects, 90, 450, "");
+{gdjs.evtTools.object.createObjectOnScene((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : runtimeScene), gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDAreYouSureTextObjects1Objects, 200, 500, "");
+}{gdjs.evtTools.object.createObjectOnScene((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : runtimeScene), gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDYesBoxObjects1Objects, 550, 800, "");
+}{gdjs.evtTools.object.createObjectOnScene((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : runtimeScene), gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDNoBoxObjects1Objects, 175, 800, "");
+}{gdjs.evtTools.object.createObjectOnScene((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : runtimeScene), gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDTextBoxObjects1Objects, 90, 450, "");
 }{for(var i = 0, len = gdjs.SettingsCode.GDAreYouSureTextObjects1.length ;i < len;++i) {
     gdjs.SettingsCode.GDAreYouSureTextObjects1[i].setLayer("UI");
 }
@@ -183,8 +183,8 @@ gdjs.SettingsCode.GDYesBoxObjects1.length = 0;
 }
 
 
-}; //End of gdjs.SettingsCode.eventsList0x8c27b8
-gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDYesBoxObjects1Objects = Hashtable.newFrom({"YesBox": gdjs.SettingsCode.GDYesBoxObjects1});gdjs.SettingsCode.eventsList0x74aa48 = function(runtimeScene, context) {
+}; //End of gdjs.SettingsCode.eventsList0x808258
+gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDYesBoxObjects1Objects = Hashtable.newFrom({"YesBox": gdjs.SettingsCode.GDYesBoxObjects1});gdjs.SettingsCode.eventsList0x808a40 = function(runtimeScene) {
 
 {
 
@@ -215,8 +215,8 @@ gdjs.SettingsCode.GDTextBoxObjects1.createFrom(runtimeScene.getObjects("TextBox"
 }
 
 
-}; //End of gdjs.SettingsCode.eventsList0x74aa48
-gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDNoBoxObjects1Objects = Hashtable.newFrom({"NoBox": gdjs.SettingsCode.GDNoBoxObjects1});gdjs.SettingsCode.eventsList0x74b048 = function(runtimeScene, context) {
+}; //End of gdjs.SettingsCode.eventsList0x808a40
+gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDNoBoxObjects1Objects = Hashtable.newFrom({"NoBox": gdjs.SettingsCode.GDNoBoxObjects1});gdjs.SettingsCode.eventsList0x809040 = function(runtimeScene) {
 
 {
 
@@ -246,8 +246,8 @@ gdjs.SettingsCode.GDYesBoxObjects1.createFrom(runtimeScene.getObjects("YesBox"))
 }
 
 
-}; //End of gdjs.SettingsCode.eventsList0x74b048
-gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDBackObjects1Objects = Hashtable.newFrom({"Back": gdjs.SettingsCode.GDBackObjects1});gdjs.SettingsCode.eventsList0x74b510 = function(runtimeScene, context) {
+}; //End of gdjs.SettingsCode.eventsList0x809040
+gdjs.SettingsCode.mapOfGDgdjs_46SettingsCode_46GDBackObjects1Objects = Hashtable.newFrom({"Back": gdjs.SettingsCode.GDBackObjects1});gdjs.SettingsCode.eventsList0x809508 = function(runtimeScene) {
 
 {
 
@@ -262,8 +262,8 @@ gdjs.SettingsCode.condition0IsTrue_0.val = gdjs.evtTools.input.popStartedTouch(r
 }
 
 
-}; //End of gdjs.SettingsCode.eventsList0x74b510
-gdjs.SettingsCode.eventsList0xac5d0 = function(runtimeScene, context) {
+}; //End of gdjs.SettingsCode.eventsList0x809508
+gdjs.SettingsCode.eventsList0xb0a98 = function(runtimeScene) {
 
 {
 
@@ -452,7 +452,7 @@ gdjs.SettingsCode.condition0IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gd
 }if (gdjs.SettingsCode.condition0IsTrue_0.val) {
 
 { //Subevents
-gdjs.SettingsCode.eventsList0x714960(runtimeScene, context);} //End of subevents
+gdjs.SettingsCode.eventsList0x8066a0(runtimeScene);} //End of subevents
 }
 
 }
@@ -468,7 +468,7 @@ gdjs.SettingsCode.condition0IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gd
 }if (gdjs.SettingsCode.condition0IsTrue_0.val) {
 
 { //Subevents
-gdjs.SettingsCode.eventsList0x8c1060(runtimeScene, context);} //End of subevents
+gdjs.SettingsCode.eventsList0x806b00(runtimeScene);} //End of subevents
 }
 
 }
@@ -484,7 +484,7 @@ gdjs.SettingsCode.condition0IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gd
 }if (gdjs.SettingsCode.condition0IsTrue_0.val) {
 
 { //Subevents
-gdjs.SettingsCode.eventsList0x8c1518(runtimeScene, context);} //End of subevents
+gdjs.SettingsCode.eventsList0x806fb8(runtimeScene);} //End of subevents
 }
 
 }
@@ -500,7 +500,7 @@ gdjs.SettingsCode.condition0IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gd
 }if (gdjs.SettingsCode.condition0IsTrue_0.val) {
 
 { //Subevents
-gdjs.SettingsCode.eventsList0x8c19d0(runtimeScene, context);} //End of subevents
+gdjs.SettingsCode.eventsList0x807470(runtimeScene);} //End of subevents
 }
 
 }
@@ -516,7 +516,7 @@ gdjs.SettingsCode.condition0IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gd
 }if (gdjs.SettingsCode.condition0IsTrue_0.val) {
 
 { //Subevents
-gdjs.SettingsCode.eventsList0x8c1e88(runtimeScene, context);} //End of subevents
+gdjs.SettingsCode.eventsList0x807928(runtimeScene);} //End of subevents
 }
 
 }
@@ -532,7 +532,7 @@ gdjs.SettingsCode.condition0IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gd
 }if (gdjs.SettingsCode.condition0IsTrue_0.val) {
 
 { //Subevents
-gdjs.SettingsCode.eventsList0x8c2328(runtimeScene, context);} //End of subevents
+gdjs.SettingsCode.eventsList0x807dc8(runtimeScene);} //End of subevents
 }
 
 }
@@ -548,7 +548,7 @@ gdjs.SettingsCode.condition0IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gd
 }if (gdjs.SettingsCode.condition0IsTrue_0.val) {
 
 { //Subevents
-gdjs.SettingsCode.eventsList0x8c27b8(runtimeScene, context);} //End of subevents
+gdjs.SettingsCode.eventsList0x808258(runtimeScene);} //End of subevents
 }
 
 }
@@ -564,7 +564,7 @@ gdjs.SettingsCode.condition0IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gd
 }if (gdjs.SettingsCode.condition0IsTrue_0.val) {
 
 { //Subevents
-gdjs.SettingsCode.eventsList0x74aa48(runtimeScene, context);} //End of subevents
+gdjs.SettingsCode.eventsList0x808a40(runtimeScene);} //End of subevents
 }
 
 }
@@ -580,7 +580,7 @@ gdjs.SettingsCode.condition0IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gd
 }if (gdjs.SettingsCode.condition0IsTrue_0.val) {
 
 { //Subevents
-gdjs.SettingsCode.eventsList0x74b048(runtimeScene, context);} //End of subevents
+gdjs.SettingsCode.eventsList0x809040(runtimeScene);} //End of subevents
 }
 
 }
@@ -596,7 +596,7 @@ gdjs.SettingsCode.condition0IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gd
 }if (gdjs.SettingsCode.condition0IsTrue_0.val) {
 
 { //Subevents
-gdjs.SettingsCode.eventsList0x74b510(runtimeScene, context);} //End of subevents
+gdjs.SettingsCode.eventsList0x809508(runtimeScene);} //End of subevents
 }
 
 }
@@ -611,11 +611,11 @@ gdjs.SettingsCode.eventsList0x74b510(runtimeScene, context);} //End of subevents
 }
 
 
-}; //End of gdjs.SettingsCode.eventsList0xac5d0
+}; //End of gdjs.SettingsCode.eventsList0xb0a98
 
 
-gdjs.SettingsCode.func = function(runtimeScene, context) {
-context.startNewFrame();
+gdjs.SettingsCode.func = function(runtimeScene) {
+runtimeScene.getOnceTriggers().startNewFrame();
 gdjs.SettingsCode.GDBackgroundObjects1.length = 0;
 gdjs.SettingsCode.GDBackgroundObjects2.length = 0;
 gdjs.SettingsCode.GDResetHighScoreObjects1.length = 0;
@@ -655,6 +655,7 @@ gdjs.SettingsCode.GDTurboLeftButtonObjects2.length = 0;
 gdjs.SettingsCode.GDTurboRightButtonObjects1.length = 0;
 gdjs.SettingsCode.GDTurboRightButtonObjects2.length = 0;
 
-gdjs.SettingsCode.eventsList0xac5d0(runtimeScene, context);return;
+gdjs.SettingsCode.eventsList0xb0a98(runtimeScene);
+return;
 }
-gdjs['SettingsCode']= gdjs.SettingsCode;
+gdjs['SettingsCode'] = gdjs.SettingsCode;

@@ -6,21 +6,22 @@
 /**
  * Displays a text on the screen.
  *
- * @namespace gdjs
+ * @memberof gdjs
  * @class TextRuntimeObject
  * @extends RuntimeObject
- * @namespace gdjs
  */
 gdjs.TextRuntimeObject = function(runtimeScene, objectData)
 {
     gdjs.RuntimeObject.call(this, runtimeScene, objectData);
 
     this._characterSize = objectData.characterSize;
-    this._fontName = objectData.font || 'Arial';
+    this._fontName = objectData.font;
     this._bold = objectData.bold;
     this._italic = objectData.italic;
     this._underlined = objectData.underlined;
     this._color = [objectData.color.r, objectData.color.g, objectData.color.b];
+    this._wrapping = false;
+    this._wrappingWidth = 1;
 
     this._str = objectData.string;
 
@@ -42,8 +43,18 @@ gdjs.TextRuntimeObject.prototype.update = function() {
 };
 
 /**
+ * Initialize the extra parameters that could be set for an instance.
+ * @private
+ */
+gdjs.TextRuntimeObject.prototype.extraInitializationFromInitialInstance = function(initialInstanceData) {
+    if ( initialInstanceData.customSize ) {
+        this.setWrapping(true);
+        this.setWrappingWidth(initialInstanceData.width);
+    }
+};
+
+/**
  * Update the position object's.
- * @method _updateTextPosition
  * @private
  */
 gdjs.TextRuntimeObject.prototype._updateTextPosition = function() {
@@ -53,7 +64,6 @@ gdjs.TextRuntimeObject.prototype._updateTextPosition = function() {
 
 /**
  * Set object's position in X.
- * @method setX
  */
 gdjs.TextRuntimeObject.prototype.setX = function(x) {
     gdjs.RuntimeObject.prototype.setX.call(this, x);
@@ -62,7 +72,6 @@ gdjs.TextRuntimeObject.prototype.setX = function(x) {
 
 /**
  * Set object's position in Y.
- * @method setY
  */
 gdjs.TextRuntimeObject.prototype.setY = function(y) {
     gdjs.RuntimeObject.prototype.setY.call(this, y);
@@ -71,8 +80,7 @@ gdjs.TextRuntimeObject.prototype.setY = function(y) {
 
  /**
  * Set the angle of the object.
- * @method setAngle
- * @param angle {Number} The new angle of the object
+ * @param {number} angle The new angle of the object
  */
 gdjs.TextRuntimeObject.prototype.setAngle = function(angle) {
     gdjs.RuntimeObject.prototype.setAngle.call(this, angle);
@@ -81,7 +89,6 @@ gdjs.TextRuntimeObject.prototype.setAngle = function(angle) {
 
 /**
  * Set object's opacity.
- * @method setOpacity
  */
 gdjs.TextRuntimeObject.prototype.setOpacity = function(opacity) {
     if ( opacity < 0 ) opacity = 0;
@@ -93,7 +100,6 @@ gdjs.TextRuntimeObject.prototype.setOpacity = function(opacity) {
 
 /**
  * Get object's opacity.
- * @method getOpacity
  */
 gdjs.TextRuntimeObject.prototype.getOpacity = function() {
     return this.opacity;
@@ -101,7 +107,6 @@ gdjs.TextRuntimeObject.prototype.getOpacity = function() {
 
 /**
  * Get object's string.
- * @method getString
  */
 gdjs.TextRuntimeObject.prototype.getString = function() {
     return this._str;
@@ -109,7 +114,6 @@ gdjs.TextRuntimeObject.prototype.getString = function() {
 
 /**
  * Set object's string.
- * @method setString
  * @param {String} Change string of text for your object.
  */
 gdjs.TextRuntimeObject.prototype.setString = function(str) {
@@ -122,7 +126,6 @@ gdjs.TextRuntimeObject.prototype.setString = function(str) {
 
 /**
  * Get size of characters of the object.
- * @method getCharacterSize
  */
 gdjs.TextRuntimeObject.prototype.getCharacterSize = function() {
     return this._characterSize;
@@ -130,8 +133,7 @@ gdjs.TextRuntimeObject.prototype.getCharacterSize = function() {
 
 /**
  * Set size of characters of the object.
- * @method setCharacterSize
- * @param newSize {Number} The new size for text.
+ * @param {number} newSize The new size for text.
  */
 gdjs.TextRuntimeObject.prototype.setCharacterSize = function(newSize) {
     if (newSize <= 1) newSize = 1;
@@ -141,7 +143,6 @@ gdjs.TextRuntimeObject.prototype.setCharacterSize = function(newSize) {
 
 /**
  * Return true if your text is bold.
- * @method isBold
  */
 gdjs.TextRuntimeObject.prototype.isBold = function() {
     return this._bold;
@@ -149,7 +150,6 @@ gdjs.TextRuntimeObject.prototype.isBold = function() {
 
 /**
  * Set bold for your object text.
- * @method setBold
  * @param enable {Boolean} Set it to true to have a bold text, false to not bold.
  */
 gdjs.TextRuntimeObject.prototype.setBold = function(enable) {
@@ -159,7 +159,6 @@ gdjs.TextRuntimeObject.prototype.setBold = function(enable) {
 
 /**
  * Return true if your text is italic.
- * @method isItalic
  */
 gdjs.TextRuntimeObject.prototype.isItalic = function() {
     return this._italic;
@@ -167,7 +166,6 @@ gdjs.TextRuntimeObject.prototype.isItalic = function() {
 
 /**
  * Set italic for your object text.
- * @method setItalic
  * @param enable {Boolean} Set it to true to have a italic text, false to not italic.
  */
 gdjs.TextRuntimeObject.prototype.setItalic = function(enable) {
@@ -177,7 +175,6 @@ gdjs.TextRuntimeObject.prototype.setItalic = function(enable) {
 
 /**
  * Get width for your object text.
- * @method getWidth
  */
 gdjs.TextRuntimeObject.prototype.getWidth = function() {
     return this._renderer.getWidth();
@@ -185,7 +182,6 @@ gdjs.TextRuntimeObject.prototype.getWidth = function() {
 
 /**
  * Get height for your object text.
- * @method getHeight
  */
 gdjs.TextRuntimeObject.prototype.getHeight = function() {
     return this._renderer.getHeight();
@@ -193,7 +189,6 @@ gdjs.TextRuntimeObject.prototype.getHeight = function() {
 
 /**
  * Change the text color.
- * @method setColor
  * @param {String} example for red : "255;0;0"
  */
 gdjs.TextRuntimeObject.prototype.setColor = function(str) {
@@ -203,5 +198,39 @@ gdjs.TextRuntimeObject.prototype.setColor = function(str) {
     this._color[0] = parseInt(color[0], 10);
     this._color[1] = parseInt(color[1], 10);
     this._color[2] = parseInt(color[2], 10);
+    this._renderer.updateStyle();
+};
+
+
+/**
+ * Return true if word wrapping is enabled for your text.
+ */
+gdjs.TextRuntimeObject.prototype.isWrapping = function() {
+    return this._wrapping;
+};
+
+/**
+ * Set word wrapping for your object text.
+ * @param enable {Boolean} Set it to true to enable word wrapping, false to disable it.
+ */
+gdjs.TextRuntimeObject.prototype.setWrapping = function(enable) {
+    this._wrapping = enable;
+    this._renderer.updateStyle();
+};
+
+/**
+ * Get the word wrapping width for your text object.
+ */
+gdjs.TextRuntimeObject.prototype.getWrappingWidth = function() {
+    return this._wrappingWidth;
+};
+
+/**
+ * Set the word wrapping width for your text object.
+ * @param {number} width The new width to set.
+ */
+gdjs.TextRuntimeObject.prototype.setWrappingWidth = function(width) {
+    if (width <= 1) width = 1;
+    this._wrappingWidth = width;
     this._renderer.updateStyle();
 };

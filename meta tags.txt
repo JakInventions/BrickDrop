@@ -1,3 +1,12 @@
+
+Stuff to add
+
+config.xml in manual build
+
+<preference name="android-targetSdkVersion" value="26"/>
+
+index in html version
+
 <title>Brick Drop</title>
 
 <link rel="apple-touch-icon" href="icon2.png">

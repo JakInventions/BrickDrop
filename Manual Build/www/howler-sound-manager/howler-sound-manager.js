@@ -6,20 +6,19 @@
 
 /**
  * A thin wrapper around a Howl object.
- * gdjs.HowlerSound just adds `paused`, `stopped`, `rate` and `canBeDestroyed` methods.
+ * `gdjs.HowlerSound` just adds `paused`, `stopped`, `rate` and `canBeDestroyed` methods.
  *
  * See https://github.com/goldfire/howler.js/tree/2.0 for the full documentation.
  *
- * @namespace gdjs
+ * @memberof gdjs
  * @class HowlerSound
- * @private
  */
 gdjs.HowlerSound = function(o) {
     Howl.call(this, o);
     this._paused = false;
     this._stopped = true;
     this._canBeDestroyed = false;
-    this._rate = o.rate || 1; //Read-only
+    this._rate = o.rate || 1;
 
     //Add custom events listener to keep
     //track of the sound status.
@@ -56,8 +55,12 @@ gdjs.HowlerSound.prototype.stop = function() {
 gdjs.HowlerSound.prototype.canBeDestroyed = function() {
 	return this._canBeDestroyed;
 };
-gdjs.HowlerSound.prototype.rate = function() {
-	return this._rate;
+gdjs.HowlerSound.prototype.getRate = function() {
+    return this._rate;
+};
+gdjs.HowlerSound.prototype.setRate = function(rate) {
+    this._rate = gdjs.HowlerSoundManager.clampRate(rate);
+    this.rate(this._rate);
 };
 
 /**
@@ -66,9 +69,8 @@ gdjs.HowlerSound.prototype.rate = function() {
  * It is basically a container to associate channels to sounds and keep a list
  * of all sounds being played.
  *
- * @namespace gdjs
+ * @memberof gdjs
  * @class HowlerSoundManager
- * @constructor
  */
 gdjs.HowlerSoundManager = function(resources)
 {
@@ -133,8 +135,8 @@ gdjs.SoundManager = gdjs.HowlerSoundManager; //Register the class to let the eng
 
 /**
  * Ensure rate is in a range valid for Howler.js
- * @method clampRate
  * @return The clamped rate
+ * @private
  */
 gdjs.HowlerSoundManager.clampRate = function(rate) {
 	if (rate > 4.0) return 4.0;
@@ -149,7 +151,7 @@ gdjs.HowlerSoundManager.clampRate = function(rate) {
  * Names and files are loaded from resources when preloadAudio is called. If no
  * file is associated to the given name, then the name will be considered as a
  * filename and will be returned.
- * @method _getFileFromSoundName
+ *
  * @private
  * @return The associated filename
  */
@@ -169,7 +171,6 @@ gdjs.HowlerSoundManager.prototype._getFileFromSoundName = function(soundName) {
  *
  * @param {Array} arr The array containing the sounds.
  * @param {gdjs.HowlerSound} arr The gdjs.HowlerSound to add.
- * @method _storeSoundInArray
  * @return The gdjs.HowlerSound that have been added (i.e: the second parameter).
  * @private
  */
@@ -307,6 +308,10 @@ gdjs.HowlerSoundManager.prototype.clearAll = function() {
 
 gdjs.HowlerSoundManager.prototype.preloadAudio = function(onProgress, onComplete, resources) {
 	resources = resources || this._resources;
+	
+	//Construct the list of files to be loaded.
+	//For one loaded file, it can have one or more resources
+	//that use it.
     var files = [];
 	for(var i = 0, len = resources.length;i<len;++i) {
 		var res = resources[i];
@@ -319,13 +324,13 @@ gdjs.HowlerSoundManager.prototype.preloadAudio = function(onProgress, onComplete
         }
     }
 
-    if (files.length === 0) return onComplete();
+    if (files.length === 0) return onComplete(files.length);
 
     var loaded = 0;
     function onLoad(audioFile) {
         loaded++;
         if (loaded === files.length) {
-            return onComplete();
+            return onComplete(files.length);
         }
 
         onProgress(loaded, files.length);

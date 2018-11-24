@@ -5,11 +5,11 @@
  */
 
 /**
- * Represents a timer which must be updated manually.
+ * Represents a timer, which must be updated manually with {@link gdjs.Timer#updateTime}.
  *
  * @class Timer
- * @namespace gdjs
- * @constructor
+ * @memberof gdjs
+ * @param {string} name The name of the timer.
  */
 gdjs.Timer = function(name)
 {
@@ -20,25 +20,23 @@ gdjs.Timer = function(name)
 
 /**
  * Get the name of the timer
- * @method getName
- * @return {String} The name of the timer
+ * @return {string} The name of the timer
  */
 gdjs.Timer.prototype.getName = function() {
 	return this._name;
 }
 
 /**
- * Get the time elapsed
- * @method getTime
- * @return {String} The time of the timer
+ * Get the time of the timer, in milliseconds.
+ * @return {number} The time of the timer, in milliseconds.
  */
 gdjs.Timer.prototype.getTime = function() {
 	return this._time;
 }
 
 /**
- * Notify the timer that some time elapsed.
- * @method updateTime
+ * Notify the timer that some time has passed.
+ * @param {number} time The elapsed time, in milliseconds.
  */
 gdjs.Timer.prototype.updateTime = function(time) {
 	if ( !this._paused ) this._time += time;
@@ -46,23 +44,22 @@ gdjs.Timer.prototype.updateTime = function(time) {
 
 /**
  * Change the time.
- * @method setTime
+ * @param {number} time The new time, in milliseconds.
  */
 gdjs.Timer.prototype.setTime = function(time) {
 	this._time = time;
 }
 
 /**
- * Set time to zero.
- * @method reset
+ * Reset the time to zero.
  */
-gdjs.Timer.prototype.reset = function(time) {
+gdjs.Timer.prototype.reset = function() {
 	this.setTime(0);
 }
 
 /**
  * Set if the timer is paused.
- * @method setPaused
+ * @param {boolean} enable true to pause the timer, false otherwise.
  */
 gdjs.Timer.prototype.setPaused = function(enable) {
 	this._paused = enable;
@@ -70,7 +67,6 @@ gdjs.Timer.prototype.setPaused = function(enable) {
 
 /**
  * Check if the timer is paused.
- * @method isPaused
  */
 gdjs.Timer.prototype.isPaused = function() {
 	return this._paused;
