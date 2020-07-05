@@ -1,5 +1,6 @@
 window.onload = async () => {
+    let preview = document.querySelector('#preview');
     await launchSplash();
-    await launchPreview();
+    await fadeIn(preview);
 }
 

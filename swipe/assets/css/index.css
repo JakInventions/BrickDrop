@@ -1,13 +1,9 @@
 /* Ids */
 
 #game{
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
+    margin: auto;
     height: 100%;
-    background: #303030;
-    color: white;
+    width: 600px;
 }
 
 #game .scene{
@@ -31,12 +27,18 @@
     height: 100%;
 }
 
-/* Tags */
-
 .player{
     width: 100px;
     height: 100px;
     background-color: white;
+}
+
+/* Tags */
+
+body{
+    margin: 0px;
+    background: #303030;
+    color: white;
 }
 
 /* Other */
@@ -47,3 +49,10 @@
 
 /* Mobile */
 
+@media (max-width: 600px) {
+
+    #game{
+        width: 100%;
+    }
+
+}
